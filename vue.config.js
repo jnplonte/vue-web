@@ -9,7 +9,7 @@ const port = 8384;
 
 module.exports = {
   publicPath: '/',
-  outputDir: 'dist',
+  outputDir: 'build',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
