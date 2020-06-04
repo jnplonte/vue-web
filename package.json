@@ -1,7 +1,15 @@
 {
   "name": "vue-web",
+  "description": "vue web",
   "version": "1.0.0",
+  "main": "index.js",
   "private": true,
+  "keywords": [],
+  "author": "john paul onte <jnpl.onte@gmail.com>",
+  "license": "MIT",
+  "quokka": {
+    "babel": true
+  },
   "scripts": {
     "start": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build --mode production",
