@@ -1,13 +1,13 @@
 <template>
-  <v-app id="app">
+  <div>
     <div v-if="loading" class="loader-container"><div class="loader"></div></div>
     <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
       <topbar/>
-      <div class="minimal-container">
-        <router-view :key="$route.fullPath"/>
-      </div>
+      <v-content class="minimal-container">
+        <slot />
+      </v-content>
     </div>
-  </v-app>
+  </div>
 </template>
 
 <script lang="ts">

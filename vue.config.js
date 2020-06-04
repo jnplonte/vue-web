@@ -8,6 +8,11 @@ function resolve(dir) {
 const port = 8384;
 
 module.exports = {
+  pages: {
+    index: {
+      entry: resolve('src/main.tsx')
+    }
+  },
   publicPath: '/',
   outputDir: 'build',
   assetsDir: 'static',

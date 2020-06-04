@@ -4,8 +4,9 @@ import { Component } from 'vue-property-decorator';
 
 @Component({
   name: 'FooterComponent',
+  components: {},
 })
 
 export default class FooterComponent extends Vue {
-  companyName: string = process.env.VUE_APP_NAME;
+  appName: string = process.env.VUE_APP_NAME;
 }

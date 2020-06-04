@@ -4,16 +4,16 @@ import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 import vuetifyOptions from '@/plugins/vuetify/index';
 
-import { createRouter } from './router';
-import { createStore } from './store';
-import { createTranslation } from './translations';
+import { createRouter } from '@/routes';
+import { createStore } from '@/stores';
+import { createLocale } from '@/locales';
 
 import App from './App.vue';
 
 Vue.config.productionTip = false;
 
 const store = createStore(Vue);
-const i18n = createTranslation(Vue);
+const i18n = createLocale(Vue);
 const router = createRouter(Vue, store, i18n);
 const vuetify = new Vuetify({
   ...vuetifyOptions,

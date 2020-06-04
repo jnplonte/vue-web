@@ -1,13 +1,7 @@
 <template>
-  <div class="footer">
-    <div class="container-fluid">
-      <p class="trademark d-none d-sm-block">
-        <span class="developer-hidden">Evan Roberto&nbsp;</span>
-        <font-awesome-icon icon="copyright"></font-awesome-icon>
-        2019 {{ companyName }}
-      </p>
-    </div>
-  </div>
+  <v-footer app class="footer-component">
+      <span class="white--text">&copy; 2019 {{appName}}</span>
+  </v-footer>
 </template>
 
 <script src="./footer.component.tsx" lang="ts"></script>

@@ -1,15 +1,15 @@
 <template>
-  <v-app id="app">
+  <div>
     <div v-if="loading" class="loader-container"><div class="loader"></div></div>
     <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
-      <navbar/>
-      <sidebar/>
-      <div class="main-container">
-          <router-view :key="$route.fullPath"/>
-      </div>
+      <topbar @openNav="handleOpenNav"/>
+      <sidebar @openNav="handleOpenNav" :open-nav-value="openNavValue"/>
+      <v-content class="main-container">
+        <slot />
+      </v-content>
       <custom-footer/>
     </div>
-  </v-app>
+  </div>
 </template>
 
 <script lang="ts">
@@ -21,7 +21,7 @@
   @Component({
     name: 'MainLayout',
     components: {
-      'navbar': Topbar,
+      'topbar': Topbar,
       'sidebar': Sidebar,
       'custom-footer': Footer
     },
@@ -30,6 +30,7 @@
   export default class MainLayout extends Vue {
     @Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
 
+    openNav: boolean = false;
     loading: boolean = true;
 
     created(): void {
@@ -38,6 +39,14 @@
       } else {
         this.loading = false;
       }
+    }
+
+    handleOpenNav(val: boolean  = false): void {
+      this.openNav = val;
+    }
+
+    get openNavValue(): boolean {
+      return this.openNav;
     }
   }
 </script>
