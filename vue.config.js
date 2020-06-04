@@ -16,8 +16,8 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        prependData: `@import '@/styles/sass/_variables.scss';`
-      }
+        prependData: `@import "@/styles/sass/_variables.scss";`
+      },
     }
   },
   devServer: {
@@ -34,12 +34,12 @@ module.exports = {
       hints: false
     },
     resolve: {
-      extensions: ['.ts', 'tsx', '.js', '.vue', '.json'],
+      extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
       alias: {
-        '@': resolve('src')
+        "@": resolve('src')
       }
     }
   },
   pluginOptions: {},
-  transpileDependencies: ['vuetify']
+  transpileDependencies: ['vuetify'],
 }
