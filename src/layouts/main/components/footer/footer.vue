@@ -1,7 +1,7 @@
 <template>
-  <v-footer app class="footer-component">
-      <span class="white--text">&copy; 2019 {{appName}}</span>
-  </v-footer>
+  <div class="footer-component">
+      <span>{{appName}}</span>
+  </div>
 </template>
 
 <script src="./footer.component.tsx" lang="ts"></script>
