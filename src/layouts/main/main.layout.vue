@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div v-if="loading" class="loader-container"><div class="loader"></div></div>
     <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
-      <topbar @openNav="handleOpenNav"/>
+      <topbar @openNav="handleOpenNav" @signOut="handleSignOut"/>
       <sidebar @openNav="handleOpenNav" :open-nav-value="openNavValue"/>
       <v-content class="main-container">
+        <div v-if="loading" class="loader-container">
+          <v-progress-circular :size="70" :width="7" color="indigo" indeterminate ></v-progress-circular>
+        </div>
         <slot />
       </v-content>
       <custom-footer/>
@@ -14,32 +16,26 @@
 
 <script lang="ts">
   import { Getter, Mutation, Action } from 'vuex-class';
-  import { Vue, Component } from 'vue-property-decorator';
+  import { Component, Mixins } from 'vue-property-decorator';
 
   import { Topbar, Sidebar, Footer } from './components';
+
+  import { LoadingMixin } from '@/mixins/loading/loading';
 
   @Component({
     name: 'MainLayout',
     components: {
       'topbar': Topbar,
       'sidebar': Sidebar,
-      'custom-footer': Footer
+      'custom-footer': Footer,
     },
   })
 
-  export default class MainLayout extends Vue {
+  export default class MainLayout extends Mixins(LoadingMixin) {
     @Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
+    @Action('logOutUser', { namespace: 'authentication' }) $logOutUser;
 
     openNav: boolean = false;
-    loading: boolean = true;
-
-    created(): void {
-      if (this.$isLogIn) {
-        this.loading = false;
-      } else {
-        this.loading = false;
-      }
-    }
 
     handleOpenNav(val: boolean  = false): void {
       this.openNav = val;
@@ -47,6 +43,12 @@
 
     get openNavValue(): boolean {
       return this.openNav;
+    }
+
+    handleSignOut = () => {
+      this.$logOutUser();
+
+      this.$router.push({ name: 'signIn' });
     }
   }
 </script>

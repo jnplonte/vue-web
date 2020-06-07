@@ -1,33 +1,15 @@
 import { GetterTree } from 'vuex';
-import { AuthenticationState } from './types';
-import { RootState } from '../types';
+import { IAuthenticationState } from './types';
+import { IRootState } from '../types';
 
-export const getters: GetterTree<AuthenticationState, RootState> = {
-  isAdmin(state: AuthenticationState): boolean {
-    return state.isAdmin;
+export const getters: GetterTree<IAuthenticationState, IRootState> = {
+  token(state: IAuthenticationState): string {
+    return (state.token) ? state.token : '';
   },
-  isLogIn(state: AuthenticationState): boolean {
+  isLogIn(state: IAuthenticationState): boolean {
     return state.isLogIn;
   },
-  userKey(state: AuthenticationState): string {
-    return (state.isLogIn) ? state.userKey : '';
+  authData(state: IAuthenticationState): object {
+    return (state.authData) ? state.authData : {};
   },
-  lfToken(state: AuthenticationState): string {
-    return (state.isLogIn) ? state.lfToken : '';
-  },
-  lfCustKey(state: AuthenticationState): string {
-    return (state.isLogIn) ? state.lfCustKey : '';
-  },
-  lfAPIToken(state: AuthenticationState): string {
-    return (state.isLogIn) ? state.lfAPIToken : '';
-  },
-  adminLegacyKey(state: AuthenticationState): string {
-    return (state.isLogIn) ? state.adminLegacyKey : '';
-  },
-  userInformation(state: AuthenticationState): object {
-    return (state.isLogIn) ? state.userInformation : {};
-  },
-  userData(state: AuthenticationState): object {
-    return (state.isLogIn) ? state.userData : {};
-  }
 };

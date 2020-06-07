@@ -1,20 +1,40 @@
-import { Component, Prop, Mixins, Watch } from 'vue-property-decorator';
-import { HelperMixin } from '@/mixins/helper/helper';
+import Vue from 'vue';
+import { Component, Prop, Watch } from 'vue-property-decorator';
+
+import { SidebarNav, Profile } from './components';
 
 @Component({
   name: 'SidebarComponent',
-  components: {},
+  components: {
+    'profile': Profile,
+    'sidebar-nav': SidebarNav,
+  },
 })
 
-export default class SidebarComponent extends Mixins(HelperMixin) {
+export default class SidebarComponent extends Vue {
   @Prop({ type: Boolean, default: false }) openNavValue: boolean;
+
+  private isSmall: boolean = false;
+
+  protected pages: any = [
+    {
+      name: 'dashboard',
+      title: 'Dashboard',
+      href: '/dashboard',
+      icon: 'mdi-apps',
+    },
+    {
+      name: 'user',
+      title: 'User',
+      href: '/user',
+      icon: 'mdi-account',
+    },
+  ];
 
   @Watch('value')
   openNav(newVal) {
     this.$emit('openNav', newVal);
   }
-
-  private isSmall: boolean = false;
 
   mounted(): void {
     this.isSmall = (window.innerWidth <= 600);

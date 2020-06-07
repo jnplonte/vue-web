@@ -1,19 +1,17 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions, Store } from 'vuex';
-import { RootState } from './types';
+import { IRootState } from './types';
 import { createAuthenticationModule } from './authentication';
-import { createCommonModule } from './common';
 
-const store: StoreOptions<RootState> = {
+const store: StoreOptions<IRootState> = {
   strict: true,
   modules: {
     authentication: createAuthenticationModule(),
-    common: createCommonModule(),
   },
 };
 
 export function createStore(vueInstance = Vue) {
   vueInstance.use(Vuex);
 
-  return new Store<RootState>(store);
+  return new Store<IRootState>(store);
 }

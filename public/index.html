@@ -7,11 +7,15 @@
     <link rel="manifest" href="<%= VUE_APP_BASE_URL %>/manifest.json">
     <link rel="shortcut icon" href="<%= VUE_APP_BASE_URL %>/favicon.ico">
     <title><%= VUE_APP_NAME %></title>
+
+    <link rel="stylesheet" type="text/css" href="<%= VUE_APP_BASE_URL %>/loader.css"></link>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="jnpl-root"></div>
+    <div id="jnpl-root">
+      <div class="loader-container"><div class="loader"></div></div>
+    </div>
   </body>
 </html>

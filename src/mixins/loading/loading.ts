@@ -5,14 +5,16 @@ import { Component } from 'vue-property-decorator';
 
 @Component
 export class LoadingMixin extends Vue {
-  @Getter('loading', { namespace: 'common' }) $loading;
-  @Mutation('SET_LOADING', { namespace: 'common' }) $setLoading;
+  // @Getter('loading', { namespace: 'common' }) $loading;
+  // @Mutation('SET_LOADING', { namespace: 'common' }) $setLoading;
 
-  get loading() {
-    return this.$loading;
-  }
+  // get loading() {
+  //   return this.$loading;
+  // }
 
-  set loading(val: boolean) {
-    this.$setLoading(val);
-  }
+  // set loading(val: boolean) {
+  //   this.$setLoading(val);
+  // }
+
+  protected loading: boolean = false;
 }

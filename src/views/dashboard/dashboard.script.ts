@@ -6,8 +6,4 @@ import { LoadingMixin } from '@/mixins/loading/loading';
   components: {},
 })
 
-export default class DashboardView extends Mixins(LoadingMixin) {
-  created(): void {
-    this.loading = false;
-  }
-}
+export default class DashboardView extends Mixins(LoadingMixin) {}

@@ -9,10 +9,9 @@
 <script lang="ts">
   import '@/hooks.tsx';
 
-  import { Getter, Mutation, Action } from 'vuex-class';
-  import { Component, Mixins, Watch } from 'vue-property-decorator';
-
-  import { LoadingMixin } from '@/mixins/loading/loading';
+  import Vue from 'vue';
+  import { Getter } from 'vuex-class';
+  import { Component } from 'vue-property-decorator';
 
   import { MainLayout, MinimalLayout } from '@/layouts';
 
@@ -24,19 +23,10 @@
     },
   })
 
-  export default class App extends Mixins(LoadingMixin) {
+  export default class App extends Vue {
     @Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
 
     defaultLayout: string = 'minimal';
-    loading: boolean = true;
-
-    created(): void {
-      if (this.$isLogIn) {
-        this.loading = false;
-      } else {
-        this.loading = false;
-      }
-    }
 
     get layout(): string {
       return (this.$route.meta.layout || this.defaultLayout) + '-layout';

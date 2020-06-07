@@ -10,20 +10,47 @@ import { createLocale } from '@/locales';
 
 import App from './App.vue';
 
+import { UserAPI } from '@/api/user.api';
+import { Helper } from '@/services/helper/helper.service';
+
 Vue.config.productionTip = false;
 
 const store = createStore(Vue);
+const router = createRouter(Vue, store);
 const i18n = createLocale(Vue);
-const router = createRouter(Vue, store, i18n);
 const vuetify = new Vuetify({
   ...vuetifyOptions,
   lang: { t: (key, ...params) => i18n.t(key, params) as string },
 });
 
-new Vue({
-  router,
-  store,
-  i18n,
-  vuetify,
-  render: (h) => h(App),
-}).$mount('#jnpl-root');
+const initVueApp = () => {
+  new Vue({
+    store,
+    router,
+    i18n,
+    vuetify,
+    render: (h) => h(App),
+  }).$mount('#jnpl-root');
+};
+
+const helper: Helper = new Helper();
+const authToken: string = helper.getCookie(process.env.VUE_APP_AUTH_COOKIE);
+if (authToken) {
+    const userRequest = new UserAPI(authToken);
+    userRequest.test()
+      .then((requestData) => {
+        if (requestData.data) {
+          store.dispatch('authentication/saveToken', authToken);
+          store.dispatch('authentication/saveAuthData', requestData.data);
+        } else {
+          store.dispatch('authentication/logOutUser');
+        }
+
+        initVueApp();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+} else {
+  initVueApp();
+}

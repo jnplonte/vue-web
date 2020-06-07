@@ -1,11 +1,5 @@
-export interface AuthenticationState {
-  isAdmin: boolean;
+export interface IAuthenticationState {
+  token: string;
   isLogIn: boolean;
-  userKey: string;
-  lfToken: string;
-  lfCustKey: string;
-  lfAPIToken: string;
-  adminLegacyKey: string;
-  userInformation: object;
-  userData: object;
+  authData: object;
 }

@@ -21,7 +21,7 @@ export const routes = [
     component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/dashboard.vue'),
     meta: {
       layout: 'main',
-      auth: false,
+      auth: true,
     },
   },
   {
@@ -42,7 +42,7 @@ export const routes = [
   },
 ];
 
-const handleRouterPermission = ({ router, store, i18n }) => {
+const handleRouterPermission = ({ router, store }) => {
   const $isLogIn = store.getters['authentication/isLogIn'] || false;
 
   router.beforeEach((to, from, next) => {
@@ -71,11 +71,11 @@ const handleRouterPermission = ({ router, store, i18n }) => {
   });
 };
 
-export function createRouter(vueInstance = Vue, store, i18n) {
+export function createRouter(vueInstance = Vue, store) {
   vueInstance.use(Router);
 
   const router = new Router({ routes });
-  handleRouterPermission({ router, store, i18n });
+  handleRouterPermission({ router, store });
 
   return router;
 }

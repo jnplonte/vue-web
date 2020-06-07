@@ -1,10 +1,8 @@
 export class Logger {
-    env: string = process.env.NODE_ENV;
+    env: string = '';
 
-    table(...msg: any) {
-        if (this.env !== 'production') {
-            console.table(...msg);
-        }
+    constructor() {
+        this.env = process.env.NODE_ENV || '';
     }
 
     info(...msg: any) {
