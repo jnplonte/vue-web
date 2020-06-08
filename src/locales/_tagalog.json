@@ -1,17 +1,19 @@
 {
-  "common": {
-      "signIn": "SIGN IN"
-  },
-  "form": {
-      "username": "User Name",
-      "password": "Password"
-  },
-  "error": {
-      "required": "is required",
-      "invalid": "is invalid",
-      "login": "invalid username or password"
-  },
-  "success": {
-      "login": "login success"
-  }
+    "common": {
+        "signIn": "TAGALOG SIGN IN"
+    },
+    "form": {
+        "username": "User Name",
+        "password": "Password"
+    },
+    "error": {
+        "usernameRequired": "username is required",
+        "passwordRequired": "password is required",
+        "passwordInvalid": "password is invalid",
+        "login": "invalid username or password"
+    },
+    "success": {
+        "login": "login success",
+        "logout": "logout success"
+    }
 }

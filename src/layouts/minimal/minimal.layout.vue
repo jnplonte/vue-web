@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
-      <topbar/>
+      <topbar v-if="$isLogIn"/>
       <v-content class="minimal-container">
         <slot />
       </v-content>

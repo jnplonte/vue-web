@@ -25,6 +25,24 @@ export const routes = [
     },
   },
   {
+    path: '/user',
+    name: 'user',
+    component: () => import(/* webpackChunkName: "user" */ '@/views/user/user.vue'),
+    meta: {
+      layout: 'main',
+      auth: true,
+    },
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: () => import(/* webpackChunkName: "account" */ '@/views/account/account.vue'),
+    meta: {
+      layout: 'main',
+      auth: true,
+    },
+  },
+  {
     path: '/page-not-found',
     name: 'notFound',
     component: () => import(/* webpackChunkName: "not-found" */ '@/views/not-found/not-found.vue'),
@@ -43,28 +61,23 @@ export const routes = [
 ];
 
 const handleRouterPermission = ({ router, store }) => {
-  const $isLogIn = store.getters['authentication/isLogIn'] || false;
-
   router.beforeEach((to, from, next) => {
+    const $isLogIn = store.getters['authentication/isLogIn'] || false;
+
     if (to.matched.some((record) => record.meta.everyone)) {
       next();
-
     } else {
       if (to.matched.some((record) => record.meta.auth)) {
           if (!$isLogIn) {
               next({ name: 'signIn'});
-
           } else {
               next();
-
           }
       } else {
           if ($isLogIn) {
               next({ name: 'dashboard'});
-
           } else {
               next();
-
           }
       }
     }

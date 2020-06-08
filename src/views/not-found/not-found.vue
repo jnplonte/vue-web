@@ -1,6 +1,7 @@
 <template>
   <div class="not-found-continer">
-    404
+    <h2 class="center-text">PAGE NOT FOUND</h2>
+    <router-link :to="homePage" class="go-home">go back to home page</router-link>
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Watch, Mixins } from 'vue-property-decorator';
 import { HelperMixin } from '@/mixins/helper/helper';
 
 @Component({
@@ -11,8 +11,13 @@ export default class SidebarNavComponent extends Mixins(HelperMixin) {
 
     private path: string = 'dashboard';
 
-    mounted(): void {
-      this.path = this.$route.name;
+    @Watch('$route.name')
+    onChangeRoute(newVal) {
+      this.path = newVal;
+    }
+
+    get activeRoute(): string {
+      return this.path;
     }
 
     get pageList(): Array<any | null> {

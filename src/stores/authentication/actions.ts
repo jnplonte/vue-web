@@ -3,19 +3,32 @@ import { IAuthenticationState } from './types';
 import { IRootState } from '../types';
 
 import { Helper } from '@/services/helper/helper.service';
-// import { Request } from '@/services/request/request.service';
+
+import { AuthAPI } from '@/api/authenttication.api';
 
 const helper: Helper = new Helper();
 
 export const actions: ActionTree<IAuthenticationState, IRootState> = {
-  logInUser: ({ commit }, { loginData }): Promise<any> => {
-    console.log(loginData);
+  logInUser: ({ commit }, loginData): Promise<any> => {
+    const authRequest: AuthAPI = new AuthAPI();
 
-    commit('SET_TOKEN', 'xxxxxxxxxx');
-    commit('SET_IS_LOGIN', true);
-    commit('SET_AUTH_DATA', {test: 'data'});
+    return authRequest.login({}, loginData)
+      .then((requestData) => {
+        if (!requestData.data) {
+          return false;
+        } else {
+          helper.setCookie(process.env.VUE_APP_AUTH_COOKIE, requestData.data);
 
-    return Promise.resolve(true);
+          commit('SET_TOKEN', requestData.data);
+          commit('SET_IS_LOGIN', true);
+          commit('SET_AUTH_DATA', {test: 'data'});
+
+          return true;
+        }
+      })
+      .catch(
+        () => false
+      );
   },
   logOutUser: ({ commit }): void => {
     helper.deleteCookie(process.env.VUE_APP_AUTH_COOKIE);
@@ -29,6 +42,6 @@ export const actions: ActionTree<IAuthenticationState, IRootState> = {
   },
   saveAuthData: ({ commit }, userInformation: object): void => {
     commit('SET_IS_LOGIN', true);
-    commit('SET_AUTH_DATA', {test: 'data'});
+    commit('SET_AUTH_DATA', userInformation);
   },
 };

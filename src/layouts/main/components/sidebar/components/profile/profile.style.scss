@@ -1,3 +1,11 @@
 .profile-component {
     display: block;
+
+    .name {
+        margin: 0px;
+    }
+    .sub-name{
+        margin: 0px;
+        font-size: 0.75em;
+    }
 }

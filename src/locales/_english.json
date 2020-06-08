@@ -7,11 +7,13 @@
         "password": "Password"
     },
     "error": {
-        "required": "is required",
-        "invalid": "is invalid",
+        "usernameRequired": "username is required",
+        "passwordRequired": "password is required",
+        "passwordInvalid": "password is invalid",
         "login": "invalid username or password"
     },
     "success": {
-        "login": "login success"
+        "login": "login success",
+        "logout": "logout success"
     }
 }

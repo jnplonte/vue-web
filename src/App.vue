@@ -1,5 +1,6 @@
 <template>
   <v-app class="app">
+    <notification/>
     <component :is="layout">
       <router-view/>
     </component>
@@ -10,16 +11,18 @@
   import '@/hooks.tsx';
 
   import Vue from 'vue';
-  import { Getter } from 'vuex-class';
+  import { Getter, Action } from 'vuex-class';
   import { Component } from 'vue-property-decorator';
 
   import { MainLayout, MinimalLayout } from '@/layouts';
+  import { Notification } from '@/components';
 
   @Component({
     name: 'App',
     components: {
       'main-layout': MainLayout,
       'minimal-layout': MinimalLayout,
+      'notification': Notification,
     },
   })
 

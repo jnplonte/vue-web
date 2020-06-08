@@ -35,6 +35,8 @@
     @Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
     @Action('logOutUser', { namespace: 'authentication' }) $logOutUser;
 
+    @Action('setNotificationData', { namespace: 'siteInformation' }) $setNotificationData;
+
     openNav: boolean = false;
 
     handleOpenNav(val: boolean  = false): void {
@@ -45,10 +47,11 @@
       return this.openNav;
     }
 
-    handleSignOut = () => {
+    handleSignOut() {
       this.$logOutUser();
 
-      this.$router.push({ name: 'signIn' });
+      this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.logout') });
+      this.$router.push({ path: '/' });
     }
   }
 </script>
