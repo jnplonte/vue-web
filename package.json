@@ -13,6 +13,7 @@
   "dependencies": {
     "@mdi/font": "^5.3.45",
     "axios": "^0.19.0",
+    "chart.js": "^2.9.3",
     "compression-webpack-plugin": "^4.0.0",
     "core-js": "^3.3.2",
     "jnpl-helper": "^1.5.16",
@@ -27,6 +28,7 @@
     "typescript": "^3.9.3",
     "validate.js": "^0.13.1",
     "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.0",
     "vue-class-component": "^7.2.3",
     "vue-cli-plugin-vuetify": "^2.0.5",
     "vue-i18n": "^8.18.1",

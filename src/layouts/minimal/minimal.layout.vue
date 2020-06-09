@@ -2,7 +2,7 @@
   <div>
     <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
       <topbar v-if="$isLogIn"/>
-      <v-content class="minimal-container">
+      <v-content app class="minimal-container">
         <slot />
       </v-content>
     </div>

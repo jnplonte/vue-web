@@ -17,7 +17,6 @@ export default class ProfileComponent extends Vue {
   };
 
   created(): void {
-    console.log(this.$authData,  '<<');
     this.user['name'] = `${this.$authData.firstName} ${this.$authData.lastName}`;
     this.user['avatar'] = process.env.VUE_APP_LOGO;
     this.user['email'] = this.$authData.email;
