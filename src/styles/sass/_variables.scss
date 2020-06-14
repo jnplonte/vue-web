@@ -18,7 +18,15 @@ $dark-red:                  #C8313F;
 $green:                     #14AF1B;
 $dark-green:                #119017;
 
-$blue:                     #4051B5;
+$blue:                      #4051B5;
+
+:export {
+  white:                                                    $white;
+  grey:                                                     $grey;
+  red:                                                      $red;
+  blue:                                                     $blue;
+  green:                                                    $green;
+}
 
 $breakpoints: (
   small:  767px,

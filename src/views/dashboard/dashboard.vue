@@ -17,10 +17,34 @@
       </v-row>
       <v-row>
         <v-col class="col-12 col-sm-8">
-          <chart-data />
+          <div class="chart-data-container">
+            <v-card class="mx-auto" outlined>
+              <v-card-title class="text-center">Chart Data</v-card-title>
+              <v-divider></v-divider>
+              <chart-data />
+              <v-divider></v-divider>
+              <v-card-actions>
+                <v-col class="text-right pa-0">
+                  <v-btn text color="indigo">View More <v-icon text>mdi-arrow-right</v-icon></v-btn>
+                </v-col>
+              </v-card-actions> 
+            </v-card>
+          </div>
         </v-col>
         <v-col class="col-12 col-sm-4">
-          <pie-data />
+          <div class="pie-data-container">
+            <v-card class="mx-auto" outlined>
+              <v-card-title class="text-center">Pie Data</v-card-title>
+              <v-divider></v-divider>
+              <pie-data />
+              <v-divider></v-divider>
+              <v-card-actions>
+                <v-col class="text-right pa-0">
+                  <v-btn text color="indigo">View More <v-icon text>mdi-arrow-right</v-icon></v-btn>
+                </v-col>
+              </v-card-actions>
+            </v-card>
+          </div>
         </v-col>
       </v-row>
     </v-container>
