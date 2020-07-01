@@ -33,7 +33,7 @@ export default class SignInView extends Mixins(HelperMixin, LoggerMixin) {
       ],
       password: [
         (value) => (!!value) || this.$i18n.t('error.passwordRequired'),
-        (value) => (value).length >= 8 || this.$i18n.t('error.passwordInvalid'),
+        (value) => (!!value && (value).length >= 8) || this.$i18n.t('error.passwordInvalid'),
       ],
     };
   }

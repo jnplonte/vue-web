@@ -21,11 +21,16 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
 
   private requiredRules: any = [];
   private emailRules: any = [];
+  private passwordRules: any = [];
   private confirmPasswordRules: any = [];
 
   @Watch('$props.value')
   private onUpdateValue(newVal) {
-    if (!newVal) {
+    if (newVal) {
+      if (this.$props.data) {
+        this.formData = Object.assign({}, this.$props.data);
+      }
+    } else {
       this.form.resetValidation();
       this.formData = Object.assign({}, DEFAULT_FORM_DATA);
     }
@@ -53,6 +58,11 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
       (v) => /.+@.+\..+/.test(v) || 'valid email',
     ];
 
+    this.passwordRules =  [
+      (v) => !!v || 'required',
+      (v) => (!!v && (v).length >= 8) || 'invalid',
+    ];
+
     this.confirmPasswordRules =  [
       (v) => !!v || 'required',
       (v) => (this.formData.password === v) || 'password not match',
@@ -61,6 +71,14 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
 
   private get confirmText(): string {
     return (this.$props.type).toUpperCase();
+  }
+
+  private get confirmIcon(): string {
+    if (this.$props.type === 'insert') {
+      return 'mdi-account-plus';
+    } else {
+      return 'mdi-pencil';
+    }
   }
 
   private get confirmHeaderText(): string {

@@ -27,7 +27,7 @@ export default class SidebarComponent extends Vue {
       name: 'user',
       title: 'User',
       href: '/user',
-      icon: 'mdi-account',
+      icon: 'mdi-account-multiple',
     },
   ];
 

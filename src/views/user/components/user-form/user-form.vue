@@ -1,14 +1,16 @@
 <template>
   <v-form ref="form" lazy-validation class="user-form-component">
     <v-card>
-      <v-card-title>
-        <h4 class="mb-3">{{ confirmHeaderText }}</h4>
-      </v-card-title>
+      <v-toolbar dark color="primary" dense flat>
+        <v-icon left>{{ confirmIcon }}</v-icon>
+        <v-toolbar-title class="white--text" v-text="confirmHeaderText"/>
+      </v-toolbar>
       <v-card-text>
         <v-row>
           <v-col cols="12" sm="9" class="py-0">
             <v-text-field
               autocomplete="off"
+              :disabled="$props.type === 'update'"
               :rules="requiredRules"
               id="username"
               name="username"
@@ -67,7 +69,8 @@
           <v-col cols="12" sm="6" class="py-0">
             <v-text-field
               autocomplete="off"
-              :rules="requiredRules"
+              v-if="$props.type === 'insert'"
+              :rules="passwordRules"
               id="password"
               name="password"
               type="password"
@@ -78,6 +81,7 @@
           <v-col cols="12" sm="6" class="py-0">
             <v-text-field
               autocomplete="off"
+              v-if="$props.type === 'insert'"
               :rules="confirmPasswordRules"
               id="confirmPassword"
               name="confirmPassword"

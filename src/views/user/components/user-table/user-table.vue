@@ -1,6 +1,9 @@
 <template>
   <div class="user-table-component">
     <confirm-dialog color="primary" :message="confirmMessage" :isVisible="isConfirm" @result="handleConfirmation" @close="isConfirm = false" />
+    <v-dialog v-model="isUpdateModalOpen" max-width="800px">
+      <user-form v-model="isUpdateModalOpen" @onUpdate="handleUpdateConfirm" @onCancel="handleUpdateClose" type='update' :data="selectedData"/>
+    </v-dialog>
     <v-card>
       <v-card-text>
         <v-data-table

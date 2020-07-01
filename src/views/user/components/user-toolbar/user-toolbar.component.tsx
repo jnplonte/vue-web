@@ -30,15 +30,15 @@ export default class UserToolbarComponent extends Mixins(LoadingMixin) {
     this.userAPI = new UserAPI(this.$token);
   }
 
-  handleAddOpen() {
+  private handleAddOpen() {
     this.isAddModalOpen = true;
   }
 
-  handleAddClose() {
+  private handleAddClose() {
     this.isAddModalOpen = false;
   }
 
-  async handleAddConfirm(data: IFormProps) {
+  private async handleAddConfirm(data: IFormProps) {
     const apiData: object = {
       username: data.username,
       email: data.email,

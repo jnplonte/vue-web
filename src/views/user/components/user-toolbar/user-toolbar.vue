@@ -1,6 +1,6 @@
 <template>
   <div class="user-toolbar-component">
-    <v-dialog v-model="isAddModalOpen" max-width="820px">
+    <v-dialog v-model="isAddModalOpen" max-width="800px">
       <user-form v-model="isAddModalOpen" @onUpdate="handleAddConfirm" @onCancel="handleAddClose" type='insert' />
     </v-dialog>
     <div class="insert-btn-container">

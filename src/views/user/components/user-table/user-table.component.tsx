@@ -1,12 +1,14 @@
 import { Getter, Action } from 'vuex-class';
 import { Component, Mixins, Prop, Watch } from 'vue-property-decorator';
+
 import { LoadingMixin } from '@/mixins/loading/loading';
 
-import ConfirmDialog from '@/components/confirm-dialog/confirm-dialog.vue';
+import { DataOptions } from 'vuetify/types';
 
 import { DEFAULT_TABLE_OPTIONS, DEFAULT_TABLE_FOOTER_PROPS, IFormProps } from '@/views/user/user.constants.tsx';
 
-import { DataOptions } from 'vuetify/types';
+import UserForm from '@/views/user/components/user-form/user-form.vue';
+import ConfirmDialog from '@/components/confirm-dialog/confirm-dialog.vue';
 
 import { UserAPI } from '@/api/user.api';
 
@@ -14,6 +16,7 @@ import { UserAPI } from '@/api/user.api';
   name: 'UserTableComponent',
   components: {
     'confirm-dialog': ConfirmDialog,
+    'user-form': UserForm,
   },
 })
 
@@ -29,6 +32,8 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
     private userAPI: UserAPI;
 
     private selectedData: IFormProps = null;
+
+    private isUpdateModalOpen: boolean = false;
 
     private isConfirm: boolean = false;
     private confirmMessage: string = '';
@@ -70,13 +75,37 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
     }
 
     private handleUpdate(userData: IFormProps) {
-        this.selectedData = userData;
+        this.selectedData = Object.assign({}, userData);
+        this.isUpdateModalOpen = true;
+    }
 
-        console.log(this.selectedData);
+    private handleUpdateClose() {
+        this.isUpdateModalOpen = false;
+    }
+
+    private async handleUpdateConfirm(data: IFormProps) {
+        const apiData: object = {
+            email: data.email,
+            roleId: Number(data.roleId),
+            firstName: data.firstName,
+            lastName: data.lastName,
+            phone: data.phone || '',
+        };
+
+        const requestData: any = await this.userAPI.put({id: data.id}, apiData);
+        if (!requestData) {
+            this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+        } else {
+            this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userUpdate') });
+
+            this.$emit('refreshData', {});
+            this.selectedData = null;
+            this.isUpdateModalOpen = false;
+        }
     }
 
     private handleDialog(userData: IFormProps) {
-        this.selectedData = userData;
+        this.selectedData = Object.assign({}, userData);
 
         this.isConfirm = true;
         this.confirmMessage = `${this.$t('user.delete')} ${this.selectedData.firstName} ${this.selectedData.lastName}`;
@@ -90,7 +119,7 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
         }
     }
 
-    async handleDeleteConfirm(id: string) {
+    private async handleDeleteConfirm(id: string) {
         const requestData: any = await this.userAPI.delete({id});
         if (!requestData) {
             this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userDelete') });
