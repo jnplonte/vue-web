@@ -5,6 +5,7 @@ import { IRootState } from '../types';
 import { Helper } from '@/services/helper/helper.service';
 
 import { AuthAPI } from '@/api/authenttication.api';
+import { UserAPI } from '@/api/user.api';
 
 const helper: Helper = new Helper();
 
@@ -21,9 +22,19 @@ export const actions: ActionTree<IAuthenticationState, IRootState> = {
 
           commit('SET_TOKEN', requestData.data);
           commit('SET_IS_LOGIN', true);
-          commit('SET_AUTH_DATA', {test: 'data'});
 
-          return true;
+          const userRequest = new UserAPI(requestData.data);
+          return userRequest.myuser()
+            .then((userRequestData) => {
+              if (userRequestData) {
+                commit('SET_AUTH_DATA', userRequestData.data);
+
+                return true;
+              } else {
+                return false;
+              }
+            })
+            .catch((error) => false);
         }
       })
       .catch(

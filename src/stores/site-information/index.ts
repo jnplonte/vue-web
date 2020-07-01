@@ -10,6 +10,7 @@ const SiteInformationModule: Module<ISiteInformationState, IRootState> = {
   state: () => {
       return {
         notificationData: {},
+        loading: true,
       };
   },
   getters,

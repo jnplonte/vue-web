@@ -6,4 +6,7 @@ export const getters: GetterTree<ISiteInformationState, IRootState> = {
   notificationData(state: ISiteInformationState): object {
     return (state.notificationData) ? state.notificationData : {};
   },
+  loading(state: ISiteInformationState): boolean {
+    return state.loading;
+  },
 };

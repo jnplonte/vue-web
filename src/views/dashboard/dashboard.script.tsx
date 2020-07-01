@@ -13,4 +13,8 @@ import { SummaryData, PieData, ChartData } from './components';
 })
 
 export default class DashboardView extends Mixins(LoadingMixin) {
+
+  created() {
+    this.loading = false;
+  }
 }

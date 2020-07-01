@@ -13,4 +13,7 @@ export const actions: ActionTree<ISiteInformationState, IRootState> = {
   hasNotificationData: ({ state }): boolean => {
     return (!helper.isEmptyObject(state.notificationData));
   },
+  setLoading: ({ commit }, loading: boolean): void => {
+    commit('SET_LOADING', loading);
+  },
 };

@@ -11,8 +11,10 @@
 
          <v-menu left bottom>
           <template v-slot:activator="{ on }">
-            <v-btn icon v-on="on" class="mr-2">
-              <v-icon>mdi-translate</v-icon><span class="ml-1">{{$i18n.locale}}</span>
+            <v-btn text v-on="on">
+              <v-icon>mdi-translate</v-icon>
+              <h3 class="ml-1 hidden-sm-and-down">{{$i18n.locale}}</h3>
+              <v-icon class="hidden-sm-and-down" right>mdi-menu-down</v-icon>
             </v-btn>
           </template>
           <v-list>

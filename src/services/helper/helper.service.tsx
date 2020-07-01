@@ -1,5 +1,5 @@
 import {
-    toJson, toString, isNotEmpty, getCookie, setCookie, deleteCookie, isEmptyObject
+    toJson, toString, isNotEmpty, getCookie, setCookie, deleteCookie, isEmptyObject, cleanDataRemoveNull
 } from 'jnpl-helper';
 
 export class Helper {
@@ -43,6 +43,10 @@ export class Helper {
 
     deleteCookie(name: string = '', domain: string = ''): string {
         return deleteCookie(name, domain);
+    }
+
+    cleanDataRemoveNull(data: any): any {
+        return cleanDataRemoveNull(data);
     }
 
     removeNullObject(obj: object = {}): object {
