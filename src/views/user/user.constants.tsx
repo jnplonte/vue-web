@@ -2,14 +2,14 @@ import { DataOptions } from 'vuetify';
 
 export interface IFormProps {
   id ?: string;
-  username: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  roleId: number;
-  password: string;
-  confirmPassword: string;
+  username ?: string;
+  firstName ?: string;
+  lastName ?: string;
+  email ?: string;
+  phone ?: string;
+  roleId ?: number;
+  password ?: string;
+  confirmPassword ?: string;
 }
 
 export const DEFAULT_FORM_DATA: IFormProps = {

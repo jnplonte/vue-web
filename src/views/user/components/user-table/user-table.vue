@@ -22,8 +22,8 @@
           </template>
           <template v-slot:item.action="{ item }">
             <template v-if="$authData['id'] !== item.id">
-              <v-icon color="green" class="mr-2 pointer" @click.native.prevent="handleUpdate(item)">mdi-pencil</v-icon>
-              <v-icon color="red" class="pointer" @click.native.prevent="handleDialog(item)">mdi-delete</v-icon>
+              <v-icon color="green" class="mr-2 pointer" @click.native.prevent="handleUpdate(item.id)">mdi-pencil</v-icon>
+              <v-icon color="red" class="pointer" @click.native.prevent="handleDialog(item.id)">mdi-delete</v-icon>
             </template>
             <template v-else>
               <v-icon color="grey" class="mr-2">mdi-pencil</v-icon>

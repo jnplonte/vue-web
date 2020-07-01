@@ -74,9 +74,14 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
         }
     }
 
-    private handleUpdate(userData: IFormProps) {
-        this.selectedData = Object.assign({}, userData);
-        this.isUpdateModalOpen = true;
+    private async handleUpdate(uId: string) {
+        const requestData: any = await this.userAPI.get({id: uId});
+        if (!requestData) {
+            this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+        } else {
+            this.selectedData = Object.assign({}, requestData.data);
+            this.isUpdateModalOpen = true;
+        }
     }
 
     private handleUpdateClose() {
@@ -104,11 +109,13 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
         }
     }
 
-    private handleDialog(userData: IFormProps) {
-        this.selectedData = Object.assign({}, userData);
+    private handleDialog(uId: string) {
+        this.selectedData = {
+            id: uId,
+        };
 
         this.isConfirm = true;
-        this.confirmMessage = `${this.$t('user.delete')} ${this.selectedData.firstName} ${this.selectedData.lastName}`;
+        this.confirmMessage = `${this.$t('user.delete')}`;
     }
 
     private handleConfirmation(result) {
