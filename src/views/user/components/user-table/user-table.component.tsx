@@ -2,6 +2,7 @@ import { Getter, Action } from 'vuex-class';
 import { Component, Mixins, Prop, Watch } from 'vue-property-decorator';
 
 import { LoadingMixin } from '@/mixins/loading/loading';
+import { HelperMixin } from '@/mixins/helper/helper';
 
 import { DataOptions } from 'vuetify/types';
 
@@ -20,7 +21,7 @@ import { UserAPI } from '@/api/user.api';
   },
 })
 
-export default class UserTableComponent extends Mixins(LoadingMixin) {
+export default class UserTableComponent extends Mixins(HelperMixin, LoadingMixin) {
     @Getter('token', { namespace: 'authentication' }) $token;
     @Getter('authData', { namespace: 'authentication' }) $authData;
     @Action('setNotificationData', { namespace: 'siteInformation' }) $setNotificationData;
@@ -48,6 +49,10 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
 
     created() {
         this.userAPI = new UserAPI(this.$token);
+
+        if (this.$route.params.userId) {
+            this.handleUpdate(this.$route.params.userId, false);
+        }
     }
 
     get headers(): object[] {
@@ -74,17 +79,27 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
         }
     }
 
-    private async handleUpdate(uId: string) {
+    private async handleUpdate(uId: string, routerPush: boolean = true) {
         const requestData: any = await this.userAPI.get({id: uId});
         if (!requestData) {
             this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
         } else {
+            if (this.helper.isEmptyObject(requestData.data)) {
+                return;
+            }
+
             this.selectedData = Object.assign({}, requestData.data);
+
+            if (routerPush) {
+                this.$router.push({ path: `/user/${requestData.data.id}`  });
+            }
+
             this.isUpdateModalOpen = true;
         }
     }
 
     private handleUpdateClose() {
+        this.$router.replace({ path: '/user' });
         this.isUpdateModalOpen = false;
     }
 
@@ -104,7 +119,9 @@ export default class UserTableComponent extends Mixins(LoadingMixin) {
             this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userUpdate') });
 
             this.$emit('refreshData', {});
+
             this.selectedData = null;
+            this.$router.replace({ path: '/user' });
             this.isUpdateModalOpen = false;
         }
     }

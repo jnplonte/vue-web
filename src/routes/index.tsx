@@ -25,7 +25,7 @@ export const routes = [
     },
   },
   {
-    path: '/user',
+    path: '/user/:userId?',
     name: 'user',
     component: () => import(/* webpackChunkName: "user" */ '@/views/user/user.vue'),
     meta: {
