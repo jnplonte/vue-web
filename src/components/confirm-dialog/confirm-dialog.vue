@@ -1,5 +1,5 @@
 <template>
-  <v-dialog class="confirm-dialog-component" v-model="isLocalVisible" :max-width="width" :isPersistent="isPersistent" @keydown.esc="choose(false)" @click:outside="emitClose">
+  <v-dialog class="confirm-dialog-component" v-model="isLocalVisible" :max-width="width" @keydown.esc="choose(false)" @click:outside="emitClose">
     <v-card tile>
       <v-toolbar v-if="Boolean(confirmTitle)" dark :color="color" dense flat>
         <v-icon v-if="Boolean(icon)" left>{{ icon }}</v-icon>

@@ -21,6 +21,7 @@
           <v-col cols="12" sm="3" class="py-0">
               <v-select
                 autocomplete="off"
+                :disabled="Number(formData.roleId) === 1"
                 :rules="requiredRules"
                 :items="roles"
                 :label="$t('user.roles')"

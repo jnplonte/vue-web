@@ -31,7 +31,6 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
       type: String,
       required: true,
     },
-    isPersistent: Boolean,
     title: {
       type: String,
     },
