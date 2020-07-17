@@ -1,10 +1,10 @@
 <template>
     <div class="profile-component my-4">
         <v-avatar size="60" class="mb-2">
-            <img :src="user.avatar" :alt="user.name"  :title="user.name" />
+            <img :src="avatar" :alt="fullName"  :title="fullName" />
         </v-avatar>
-        <p class="name">{{user.name}}</p>
-        <p class="sub-name">{{user.email}}</p>
+        <p class="name">{{fullName}}</p>
+        <p class="sub-name">{{email}}</p>
     </div>
 </template>
 

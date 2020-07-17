@@ -50,22 +50,22 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
 
   private defineFormRules() {
     this.requiredRules = [
-      (v) => !!v || 'required',
+      (v) => !!v || this.$t('error.required'),
     ];
 
     this.emailRules = [
       (v) => !!v || 'required',
-      (v) => /.+@.+\..+/.test(v) || 'valid email',
+      (v) => /.+@.+\..+/.test(v) || this.$t('error.email'),
     ];
 
     this.passwordRules =  [
       (v) => !!v || 'required',
-      (v) => (!!v && (v).length >= 8) || 'invalid',
+      (v) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.{8,})/.test(v) || this.$t('error.passwordInvalid'),
     ];
 
     this.confirmPasswordRules =  [
       (v) => !!v || 'required',
-      (v) => (this.formData.password === v) || 'password not match',
+      (v) => (this.formData.password === v) || this.$t('error.passwordDosentMatch'),
     ];
   }
 

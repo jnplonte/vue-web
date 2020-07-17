@@ -29,10 +29,10 @@ export default class SignInView extends Mixins(HelperMixin, LoggerMixin) {
   created() {
     this.formRules = {
       username: [
-        (value) => (!!value) || this.$i18n.t('error.usernameRequired'),
+        (value) => (!!value) || this.$i18n.t('error.required'),
       ],
       password: [
-        (value) => (!!value) || this.$i18n.t('error.passwordRequired'),
+        (value) => (!!value) || this.$i18n.t('error.required'),
         (value) => (!!value && (value).length >= 8) || this.$i18n.t('error.passwordInvalid'),
       ],
     };

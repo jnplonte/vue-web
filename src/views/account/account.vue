@@ -1,5 +1,5 @@
 <template>
-  <div class="account-container">
+  <div class="account-container" :class="{ 'd-none': loading }">
     <v-container fluid>
       <v-tabs v-model="selectedTab" grow>
         <v-tab v-for="item in tabItems" :key="item" :ripple="false">

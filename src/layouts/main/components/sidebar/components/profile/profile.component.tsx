@@ -10,15 +10,15 @@ import { Component } from 'vue-property-decorator';
 export default class ProfileComponent extends Vue {
   @Getter('authData', { namespace: 'authentication' }) $authData;
 
-  private user = {
-    name: '',
-    avatar: '',
-    email: '',
-  };
+  get fullName(): string {
+    return `${this.$authData.firstName} ${this.$authData.lastName}`;
+  }
 
-  created(): void {
-    this.user['name'] = `${this.$authData.firstName} ${this.$authData.lastName}`;
-    this.user['avatar'] = process.env.VUE_APP_LOGO;
-    this.user['email'] = this.$authData.email;
+  get avatar(): string {
+    return process.env.VUE_APP_LOGO;
+  }
+
+  get email(): string {
+    return this.$authData.email;
   }
 }

@@ -55,4 +55,7 @@ export const actions: ActionTree<IAuthenticationState, IRootState> = {
     commit('SET_IS_LOGIN', true);
     commit('SET_AUTH_DATA', userInformation);
   },
+  updateAuthData: ({ commit }, userInformation: object): void => {
+    commit('SET_AUTH_DATA', userInformation);
+  },
 };

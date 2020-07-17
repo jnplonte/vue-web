@@ -1,12 +1,10 @@
-import { Getter } from 'vuex-class';
-import { Component, Watch, Mixins } from 'vue-property-decorator';
+import { Getter, Action } from 'vuex-class';
+import { Component, Mixins } from 'vue-property-decorator';
 
 import { HelperMixin } from '@/mixins/helper/helper';
 import { LoadingMixin } from '@/mixins/loading/loading';
 
 import { UserAPI } from '@/api/user.api';
-
-import { VForm } from '@/types';
 
 @Component({
   name: 'Profile',
@@ -16,6 +14,8 @@ import { VForm } from '@/types';
 export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
   @Getter('token', { namespace: 'authentication' }) $token;
   @Getter('authData', { namespace: 'authentication' }) $authData;
+  @Action('updateAuthData', { namespace: 'authentication' }) $updateAuthData;
+  @Action('setNotificationData', { namespace: 'siteInformation' }) $setNotificationData;
 
   private userAPI: UserAPI = null;
   private formData: object = {
@@ -28,8 +28,8 @@ export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
 
   private requiredRules: any = [];
 
-  private get form(): VForm {
-    return this.$refs['formProfile'] as VForm;
+  private get form(): any {
+    return this.$refs['formProfile'];
   }
 
   created(): void {
@@ -58,37 +58,22 @@ export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
   }
 
   async updateProfile() {
-    console.log(this.formData, '<<<<<');
-    // const isFormValid: boolean = this.form.validate();
+    const isFormValid: boolean = this.form.validate();
 
-    // if (!isFormValid || !this.isAnyChanges) {
-    //   return;
-    // }
+    if (!isFormValid) {
+      return;
+    }
 
-    // this.$loading = true;
+    this.loading = true;
 
-    // const res = await this.userAPI.updateUserInfo({
-    //   userId: this.$authData.id,
-    //   payload: this.data,
-    // });
+    const requestData: any = await this.userAPI.put({id: this.$authData.id}, this.formData);
+    if (!requestData) {
+        this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+    } else {
+        this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userUpdate') });
+    }
 
-    // if (res.status === 'failed') {
-    //   this.$addSnackbar({
-    //     type: 'error',
-    //     message: this.$t('notification.data.updateFailed'),
-    //   });
-
-    //   this.$loading = false;
-    //   return;
-    // }
-
-    // this.$addSnackbar({
-    //   type: 'success',
-    //   message: this.$t('notification.data.updateSuccess'),
-    // });
-
-    // this.oriData = { ...this.data };
-    // this.isAnyChanges = false;
-    // this.$loading = false;
+    this.$updateAuthData({ ...this.$authData, ...this.formData });
+    this.loading = false;
   }
 }
