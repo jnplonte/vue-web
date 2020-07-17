@@ -4,6 +4,20 @@
     <component :is="layout">
       <router-view/>
     </component>
+    <v-btn
+      v-scroll="onScroll"
+      v-show="fab"
+      fab
+      small
+      dark
+      fixed
+      bottom
+      right
+      color="primary"
+      @click="toTop"
+    >
+      <v-icon>mdi-chevron-up</v-icon>
+    </v-btn>
   </v-app>
 </template>
 
@@ -31,8 +45,23 @@
 
     defaultLayout: string = 'minimal';
 
+    fab: boolean = false;
+
     get layout(): string {
       return (this.$route.meta.layout || this.defaultLayout) + '-layout';
+    }
+
+    onScroll($event) {
+      if (typeof window === 'undefined') {
+        return;
+      }
+
+      const top = window.pageYOffset || $event.target.scrollTop || 0;
+      this.fab = (top > 20);
+    }
+
+    toTop() {
+      this.$vuetify.goTo(0);
     }
   }
 </script>
