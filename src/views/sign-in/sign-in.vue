@@ -10,12 +10,12 @@
         <v-col class="col-12 col-sm-5">
           <div class="form-container">
             <v-form class="form" v-model="formState.isValid">
-              <h3  class="text-left">{{$t('common.signIn')}}</h3>
+              <h3  class="text-left">{{$t('signin.signIn')}}</h3>
               <v-text-field outlined v-model="formState.username" :rules="formRules.username" required name="username" :label="$t('form.username')"></v-text-field>
               <v-text-field outlined v-model="formState.password" :rules="formRules.password" required type="password" name="password" :label="$t('form.password')"></v-text-field>
 
               <v-btn width="100%" large :disabled="!formState.isValid" color="primary" @click="handleSignIn">
-                {{$t('common.signIn')}}
+                {{$t('signin.signIn')}}
               </v-btn>
             </v-form>
           </div>

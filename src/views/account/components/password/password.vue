@@ -6,7 +6,7 @@
           autocapitalize="none"
           type="password"
           :rules="newPwdRules"
-          :label="$t('placeholder.newPassword')"
+          :label="$t('form.newPassword')"
           v-model="formData.password"
         />
       </v-col>
@@ -15,7 +15,7 @@
           autocapitalize="none"
           type="password"
           :rules="newPwdConfirmRules"
-          :label="$t('placeholder.newPasswordConfirm')"
+          :label="$t('form.newPasswordConfirm')"
           v-model="formData.passwordConfirm"
         />
       </v-col>
@@ -24,7 +24,7 @@
           color="primary"
           depressed
           @click="updatePassword">
-        {{ $t('settings.updatePassword') }}
+        {{ $t('account.updatePassword') }}
         </v-btn>
       </v-col>
     </v-row>

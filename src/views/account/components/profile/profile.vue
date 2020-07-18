@@ -6,7 +6,7 @@
           disabled
           id="username"
           name="username"
-          :label="$t('placeholder.username')"
+          :label="$t('form.username')"
           v-model="formData.username"
         />
       </v-col>
@@ -15,7 +15,7 @@
           id="firstName"
           name="firstName"
           :rules="requiredRules"
-          :label="$t('placeholder.firstName')"
+          :label="$t('form.firstName')"
           v-model="formData.firstName"
         />
       </v-col>
@@ -24,7 +24,7 @@
           id="lastName"
           name="lastName"
           :rules="requiredRules"
-          :label="$t('placeholder.lastName')"
+          :label="$t('form.lastName')"
           v-model="formData.lastName"
         />
       </v-col>
@@ -33,7 +33,7 @@
           id="phone"
           name="phone"
           :rules="requiredRules"
-          :label="$t('placeholder.phone')"
+          :label="$t('form.phone')"
           v-model="formData.phone"
         />
       </v-col>
@@ -42,7 +42,7 @@
           id="email"
           name="email"
           :rules="requiredRules"
-          :label="$t('placeholder.email')"
+          :label="$t('form.email')"
           v-model="formData.email"
         />
       </v-col>
@@ -51,7 +51,7 @@
           color="primary"
           depressed
           @click="updateProfile">
-          {{ $t('settings.updateProfile') }}
+          {{ $t('account.updateProfile') }}
         </v-btn>
       </v-col>
     </v-row>

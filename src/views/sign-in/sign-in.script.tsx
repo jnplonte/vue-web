@@ -5,7 +5,7 @@ import { Action } from 'vuex-class';
 import { HelperMixin } from '@/mixins/helper/helper';
 import { LoggerMixin } from '@/mixins/logger/logger';
 
-import { IFormProps } from './sign-in.constant';
+import { IFormProps, DEFAULT_FORM_DATA } from './sign-in.constant';
 
 @Component({
   name: 'SignInView',
@@ -18,11 +18,7 @@ export default class SignInView extends Mixins(HelperMixin, LoggerMixin) {
 
   private appName: string = process.env.VUE_APP_NAME || '';
 
-  private formState: IFormProps =  {
-    isValid: false,
-    username: 'spiderman',
-    password: '11111111',
-  };
+  private formState: IFormProps = DEFAULT_FORM_DATA;
 
   private formRules: object = {};
 

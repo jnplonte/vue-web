@@ -1,7 +1,7 @@
 <template>
   <div class="not-found-continer">
-    <h2 class="center-text">PAGE NOT FOUND</h2>
-    <router-link :to="homePage" class="go-home">go back to home page</router-link>
+    <h2 class="center-text">{{$t('notfound.pageNotFound')}}</h2>
+    <router-link :to="homePage" class="go-home">{{$t('notfound.goBackToHome')}}</router-link>
   </div>
 </template>
 

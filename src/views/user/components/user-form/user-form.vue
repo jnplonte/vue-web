@@ -14,7 +14,7 @@
               :rules="requiredRules"
               id="username"
               name="username"
-              :label="$t('user.username')"
+              :label="$t('form.username')"
               v-model="formData.username"
             />
           </v-col>
@@ -24,7 +24,7 @@
                 :disabled="Number(formData.roleId) === 1"
                 :rules="requiredRules"
                 :items="roles"
-                :label="$t('user.roles')"
+                :label="$t('form.roles')"
                 v-model="formData.roleId"
               />
           </v-col>
@@ -34,7 +34,7 @@
               :rules="requiredRules"
               id="firstName"
               name="firstName"
-              :label="$t('user.firstName')"
+              :label="$t('form.firstName')"
               v-model="formData.firstName"
             />
           </v-col>
@@ -44,7 +44,7 @@
               :rules="requiredRules"
               id="lastName"
               name="lastName"
-              :label="$t('user.lastName')"
+              :label="$t('form.lastName')"
               v-model="formData.lastName"
             />
           </v-col>
@@ -54,7 +54,7 @@
               :rules="emailRules"
               id="email"
               name="email"
-              :label="$t('user.email')"
+              :label="$t('form.email')"
               v-model="formData.email"
             />
           </v-col>
@@ -63,7 +63,7 @@
               autocomplete="off"
               id="phone"
               name="phone"
-              :label="$t('user.phone')"
+              :label="$t('form.phone')"
               v-model="formData.phone"
             />
           </v-col>
@@ -75,7 +75,7 @@
               id="password"
               name="password"
               type="password"
-              :label="$t('user.password')"
+              :label="$t('form.password')"
               v-model="formData.password"
             />
           </v-col>
@@ -87,7 +87,7 @@
               id="confirmPassword"
               name="confirmPassword"
               type="password"
-              :label="$t('user.confirmPassword')"
+              :label="$t('form.confirmPassword')"
               v-model="formData.confirmPassword"
             />
           </v-col>

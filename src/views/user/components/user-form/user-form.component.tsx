@@ -70,7 +70,11 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
   }
 
   private get confirmText(): string {
-    return (this.$props.type).toUpperCase();
+    if (this.$props.type === 'insert') {
+      return this.$t('user.confmrInsert') as string;
+    } else {
+      return this.$t('user.confirmUpdate') as string;
+    }
   }
 
   private get confirmIcon(): string {
@@ -83,9 +87,9 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
 
   private get confirmHeaderText(): string {
     if (this.$props.type === 'insert') {
-      return 'Insert User';
+      return this.$t('user.headerInsert') as string;
     } else {
-      return 'Update User';
+      return this.$t('user.headerUpdate') as string;
     }
   }
 

@@ -1,14 +1,14 @@
 {
-  "name": "logflows-reporting-tools",
-  "version": "3.0.0",
+  "name": "vue-web",
+  "description": "vue web",
+  "version": "1.0.0",
+  "main": "index.js",
   "private": true,
-  "description": "Reporting Tools",
-  "author": "logflows",
-  "scripts": {
-    "start": "vue-cli-service serve --mode development",
-    "build:dev": "vue-cli-service build --mode development",
-    "build:prod": "vue-cli-service build --mode production",
-    "lint": "vue-cli-service lint"
+  "keywords": [],
+  "author": "john paul onte <jnpl.onte@gmail.com>",
+  "license": "MIT",
+  "quokka": {
+    "babel": true
   },
   "dependencies": {
     "@mdi/font": "^5.3.45",
@@ -47,6 +47,12 @@
     "@vue/cli-plugin-typescript": "^4.0.0",
     "@vue/cli-plugin-vuex": "^4.0.0",
     "@vue/cli-service": "^4.0.0"
+  },
+  "scripts": {
+    "start": "vue-cli-service serve --mode development",
+    "build:dev": "vue-cli-service build --mode development",
+    "build:prod": "vue-cli-service build --mode production",
+    "lint": "vue-cli-service lint"
   },
   "browserslist": {
     "production": [

@@ -17,8 +17,8 @@
             {{ `${item.firstName} ${item.lastName}` }}
           </template>
           <template v-slot:item.active="{ item }">
-            <v-chip v-if="item.active" class="ma-2" color="green" label text-color="white">ACTIVE</v-chip>
-            <v-chip v-else class="ma-2" color="red" label text-color="white">INACTIVE</v-chip>
+            <v-chip v-if="item.active" class="ma-2" color="green" label text-color="white">{{ $t('user.active') }}</v-chip>
+            <v-chip v-else class="ma-2" color="red" label text-color="white">{{ $t('user.inactive') }}</v-chip>
           </template>
           <template v-slot:item.action="{ item }">
             <template v-if="$authData['id'] !== item.id">

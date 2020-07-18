@@ -57,13 +57,13 @@ export default class UserTableComponent extends Mixins(HelperMixin, LoadingMixin
 
     get headers(): object[] {
         return [
-            { text: 'Full Name', value: 'name' },
-            { text: 'User Name', value: 'username' },
-            { text: 'Email Address', value: 'email' },
-            { text: 'Phone Number', value: 'phone' },
-            { text: 'Active', value: 'active' },
-            { text: 'Created At', value: 'createdAt' },
-            { text: 'Action', value: 'action' },
+            { text: this.$t('user.fullName'), value: 'name' },
+            { text: this.$t('user.userName'), value: 'username' },
+            { text: this.$t('user.email'), value: 'email' },
+            { text: this.$t('user.phone'), value: 'phone' },
+            { text: this.$t('user.active'), value: 'active' },
+            { text: this.$t('user.createdAt'), value: 'createdAt' },
+            { text: this.$t('user.action'), value: 'action' },
         ];
     }
 

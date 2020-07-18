@@ -3,3 +3,9 @@ export interface IFormProps {
     username: string;
     password: string;
 }
+
+export const DEFAULT_FORM_DATA: IFormProps = {
+    isValid: false,
+    username: '',
+    password: '',
+};
