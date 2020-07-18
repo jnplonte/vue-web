@@ -16,20 +16,22 @@ export default class SidebarComponent extends Vue {
 
   private isSmall: boolean = false;
 
-  protected pages: any = [
-    {
-      name: 'dashboard',
-      title: 'Dashboard',
-      href: '/dashboard',
-      icon: 'mdi-apps',
-    },
-    {
-      name: 'user',
-      title: 'User',
-      href: '/user',
-      icon: 'mdi-account-multiple',
-    },
-  ];
+  get pages(): object[] {
+    return [
+      {
+        name: 'dashboard',
+        title: this.$t('menu.dashboard'),
+        href: '/dashboard',
+        icon: 'mdi-apps',
+      },
+      {
+        name: 'user',
+        title: this.$t('menu.user'),
+        href: '/user',
+        icon: 'mdi-account-multiple',
+      },
+    ];
+  }
 
   @Watch('value')
   openNav(newVal) {
