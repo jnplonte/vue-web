@@ -2,9 +2,9 @@
   <div>
     <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
       <topbar v-if="$isLogIn"/>
-      <v-content app class="minimal-container">
+      <v-main app class="minimal-container">
         <slot />
-      </v-content>
+      </v-main>
     </div>
   </div>
 </template>

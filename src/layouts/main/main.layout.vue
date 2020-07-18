@@ -3,12 +3,12 @@
     <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
       <topbar @openNav="handleOpenNav" @signOut="handleSignOut"/>
       <sidebar @openNav="handleOpenNav" :open-nav-value="openNavValue"/>
-      <v-content app class="main-container">
+      <v-main app class="main-container">
         <div v-if="loading" class="loader-container">
           <v-progress-circular :size="70" :width="7" color="indigo" indeterminate ></v-progress-circular>
         </div>
         <slot />
-      </v-content>
+      </v-main>
       <custom-footer/>
     </div>
   </div>
