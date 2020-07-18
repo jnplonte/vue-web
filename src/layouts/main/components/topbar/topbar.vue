@@ -35,10 +35,10 @@
           </template>
           <v-list>
             <v-list-item to="/account">
-              <v-list-item-title class="text-left">My Account</v-list-item-title>
+              <v-list-item-title class="text-left">{{ $t('menu.accont') }}</v-list-item-title>
             </v-list-item>
             <v-list-item @click="signOut">
-              <v-list-item-title class="text-left">Sign Out</v-list-item-title>
+              <v-list-item-title class="text-left">{{ $t('menu.signOut') }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
