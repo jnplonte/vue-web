@@ -2,13 +2,13 @@
   <div class="sign-in-container">
     <v-container fluid class="pa-0">
       <v-row no-gutters>
-        <v-col class="d-none d-sm-flex col-12 col-sm-7">
+        <v-col cols="12" sm="7" class="d-none d-sm-flex">
           <div class="quote-container">
             <h2 class="text-white">{{appName}}</h2>
           </div>
         </v-col>
-        <v-col class="col-12 col-sm-5">
-          <div class="form-container">
+        <v-col cols="12" sm="5">
+          <div class="form-container px-6">
             <v-form class="form" v-model="formState.isValid">
               <h3  class="text-left">{{$t('signin.signIn')}}</h3>
               <v-text-field outlined v-model="formState.username" :rules="formRules.username" @keyup.enter="handleSignIn" required name="username" :label="$t('form.username')"></v-text-field>
