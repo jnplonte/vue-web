@@ -25,11 +25,11 @@ export default class SignInView extends Mixins(HelperMixin, LoggerMixin) {
   created() {
     this.formRules = {
       username: [
-        (value) => (!!value) || this.$i18n.t('error.required'),
+        (value) => (!!value) || this.$t('error.required'),
       ],
       password: [
-        (value) => (!!value) || this.$i18n.t('error.required'),
-        (value) => (!!value && (value).length >= 8) || this.$i18n.t('error.passwordInvalid'),
+        (value) => (!!value) || this.$t('error.required'),
+        (value) => (!!value && (value).length >= 8) || this.$t('error.passwordInvalid'),
       ],
     };
   }
@@ -43,10 +43,10 @@ export default class SignInView extends Mixins(HelperMixin, LoggerMixin) {
 
       const isSignIn: boolean =  await this.$logInUser(apiData);
       if (!isSignIn) {
-        this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.login') });
+        this.$setNotificationData({ type: 'error', message: this.$t('error.login') });
         this.formState.password = '';
       } else {
-        this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.login') });
+        this.$setNotificationData({ type: 'success', message: this.$t('success.login') });
         this.$router.push({ path: '/dashboard' });
       }
     }

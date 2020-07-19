@@ -24,8 +24,8 @@ export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
     passwordConfirm: null,
   };
 
-  private newPwdRules: any = [];
-  private newPwdConfirmRules: any = [];
+  private passwordRules: any = [];
+  private confirmPasswordRules: any = [];
 
   private get form(): any {
     return this.$refs['formPassword'];
@@ -40,13 +40,13 @@ export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
   }
 
   private defineFormRules() {
-    this.newPwdRules = [
-      (v) => !!v || this.$t('error.required'),
+    this.passwordRules = [
+      (v) => !!v || this.$t('error.passwordInvalid'),
       (v) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.{8,})/.test(v) || this.$t('error.passwordInvalid'),
     ];
 
-    this.newPwdConfirmRules = [
-      (v) => !!v || this.$t('error.required'),
+    this.confirmPasswordRules = [
+      (v) => !!v || this.$t('error.passwordInvalid'),
       (v) => this.formData['password'] === v || this.$t('error.passwordDosentMatch'),
     ];
   }
@@ -64,9 +64,9 @@ export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
         password: md5(this.formData['password'] || ''),
     });
     if (!requestData) {
-        this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+        this.$setNotificationData({ type: 'error', message: this.$t('error.userUpdate') });
     } else {
-        this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userUpdate') });
+        this.$setNotificationData({ type: 'success', message: this.$t('success.userUpdate') });
     }
 
     this.form.reset();

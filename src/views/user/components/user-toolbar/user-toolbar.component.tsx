@@ -51,9 +51,9 @@ export default class UserToolbarComponent extends Mixins(LoadingMixin) {
 
     const requestData: any = await this.userAPI.post(apiData);
     if (!requestData) {
-      this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userCreate') });
+      this.$setNotificationData({ type: 'error', message: this.$t('error.userCreate') });
     } else {
-      this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userCreate') });
+      this.$setNotificationData({ type: 'success', message: this.$t('success.userCreate') });
 
       this.$emit('refreshData', {});
       this.isAddModalOpen = false;

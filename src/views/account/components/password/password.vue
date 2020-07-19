@@ -5,7 +5,7 @@
         <v-text-field
           autocapitalize="none"
           type="password"
-          :rules="newPwdRules"
+          :rules="passwordRules"
           :label="$t('form.newPassword')"
           v-model="formData.password"
         />
@@ -14,7 +14,7 @@
         <v-text-field
           autocapitalize="none"
           type="password"
-          :rules="newPwdConfirmRules"
+          :rules="confirmPasswordRules"
           :label="$t('form.newPasswordConfirm')"
           v-model="formData.passwordConfirm"
         />

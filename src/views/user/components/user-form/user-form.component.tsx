@@ -54,24 +54,24 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
     ];
 
     this.emailRules = [
-      (v) => !!v || 'required',
+      (v) => !!v || this.$t('error.required'),
       (v) => /.+@.+\..+/.test(v) || this.$t('error.email'),
     ];
 
     this.passwordRules =  [
-      (v) => !!v || 'required',
+      (v) => !!v || this.$t('error.passwordInvalid'),
       (v) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.{8,})/.test(v) || this.$t('error.passwordInvalid'),
     ];
 
     this.confirmPasswordRules =  [
-      (v) => !!v || 'required',
+      (v) => !!v || this.$t('error.passwordInvalid'),
       (v) => (this.formData.password === v) || this.$t('error.passwordDosentMatch'),
     ];
   }
 
   private get confirmText(): string {
     if (this.$props.type === 'insert') {
-      return this.$t('user.confmrInsert') as string;
+      return this.$t('user.confirmInsert') as string;
     } else {
       return this.$t('user.confirmUpdate') as string;
     }

@@ -1,19 +1,78 @@
 {
-    "signin": {
-        "signIn": "SIGN IN"
+    "menu": {
+        "dashboard": "Dashboard",
+        "user": "User",
+        "account": "Account",
+        "signOut": "Sign Out"
+    },
+    "general": {
+        "warning": "Warning",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
     },
     "form": {
         "username": "User Name",
-        "password": "Password"
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "newPassword": "Password",
+        "newPasswordConfirm": "Confirm Password",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "phone": "Contact Number",
+        "email": "Email Address",
+        "search": "Search",
+        "roles": "Roles"
     },
+
+    "account": {
+        "profile": "Profile",
+        "password": "Password",
+        "updateProfile": "UPDATE PROFILE",
+        "updatePassword": "UPDATE PASSWORD"
+    },
+    "signin": {
+        "signIn": "SIGN IN"
+    },
+    "notfound": {
+        "pageNotFound": "404 PAGE NOT FOUND",
+        "goBackToHome": "back to home page"
+    },
+    "user": {
+        "fullName": "Full Name",
+        "username": "User Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "delete": "are you sure you want to delete this user?",
+        "search": "Search",
+        "active": "Active",
+        "inactive": "InActive",
+        "createdAt": "Created",
+        "action": "Action",
+        "confirmInsert": "INSERT",
+        "confirmUpdate": "UPATE",
+        "headerInsert": "INSERT USER",
+        "headerUpdate": "UPDATE USER",
+        "insert": "INSERT",
+        "user": "USER"
+    },
+
     "error": {
+        "required": "required",
         "usernameRequired": "username is required",
         "passwordRequired": "password is required",
         "passwordInvalid": "password is invalid",
-        "login": "invalid username or password"
+        "passwordDosentMatch": "password did not match",
+        "login": "invalid username or password",
+        "email": "invalid email address",
+        "userUpdate": "user update failed",
+        "userDelete": "user delete failed",
+        "userCreate": "user create failed"
     },
     "success": {
         "login": "login success",
-        "logout": "logout success"
+        "logout": "logout success",
+        "userUpdate": "user update success",
+        "userDelete": "user delete success",
+        "userCreate": "user create success"
     }
 }

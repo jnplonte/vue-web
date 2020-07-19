@@ -1,6 +1,10 @@
 .notification-continer {
     display: block;
 
+    .notification-box {
+        z-index: 1024;
+    }
+
     .close {
         position: absolute;
         right: 5px;

@@ -68,9 +68,9 @@ export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
 
     const requestData: any = await this.userAPI.put({id: this.$authData.id}, this.formData);
     if (!requestData) {
-        this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+        this.$setNotificationData({ type: 'error', message: this.$t('error.userUpdate') });
     } else {
-        this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userUpdate') });
+        this.$setNotificationData({ type: 'success', message: this.$t('success.userUpdate') });
     }
 
     this.$updateAuthData({ ...this.$authData, ...this.formData });

@@ -1,5 +1,78 @@
 {
+    "menu": {
+        "dashboard": "Dashboard TG",
+        "user": "User TG",
+        "account": "Account TG",
+        "signOut": "Sign Out TG"
+    },
+    "general": {
+        "warning": "Warning TG",
+        "confirm": "Confirm TG",
+        "cancel": "Cancel TG"
+    },
+    "form": {
+        "username": "User Name TG",
+        "password": "Password TG",
+        "confirmPassword": "Confirm Password TG",
+        "newPassword": "Password TG",
+        "newPasswordConfirm": "Confirm Password TG",
+        "firstName": "First Name TG",
+        "lastName": "Last Name TG",
+        "phone": "Contact Number TG",
+        "email": "Email Address TG",
+        "search": "Search TG",
+        "roles": "Roles TG"
+    },
+
+    "account": {
+        "profile": "Profile TG",
+        "password": "Password TG",
+        "updateProfile": "UPDATE PROFILE TG",
+        "updatePassword": "UPDATE PASSWORD TG"
+    },
     "signin": {
-        "signIn": "TAGALOG SIGN IN"
+        "signIn": "SIGN IN TG"
+    },
+    "notfound": {
+        "pageNotFound": "404 PAGE NOT FOUND TG",
+        "goBackToHome": "back to home page TG"
+    },
+    "user": {
+        "fullName": "Full Name TG",
+        "username": "User Name TG",
+        "email": "Email Address TG",
+        "phone": "Phone Number TG",
+        "delete": "are you sure you want to delete this user? TG",
+        "search": "Search TG",
+        "active": "Active TG",
+        "inactive": "InActive TG",
+        "createdAt": "Created TG",
+        "action": "Action TG",
+        "confirmInsert": "INSERT TG",
+        "confirmUpdate": "UPATE TG",
+        "headerInsert": "INSERT USER TG",
+        "headerUpdate": "UPDATE USER TG",
+        "insert": "INSERT TG",
+        "user": "USER TG"
+    },
+
+    "error": {
+        "required": "required TG",
+        "usernameRequired": "username is required TG",
+        "passwordRequired": "password is required TG",
+        "passwordInvalid": "password is invalid TG",
+        "passwordDosentMatch": "password did not match TG",
+        "login": "invalid username or password TG",
+        "email": "invalid email address TG",
+        "userUpdate": "user update failed TG",
+        "userDelete": "user delete failed TG",
+        "userCreate": "user create failed TG"
+    },
+    "success": {
+        "login": "login success TG",
+        "logout": "logout success TG",
+        "userUpdate": "user update success TG",
+        "userDelete": "user delete success TG",
+        "userCreate": "user create success TG"
     }
 }

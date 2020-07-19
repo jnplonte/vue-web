@@ -50,7 +50,7 @@
     handleSignOut() {
       this.$logOutUser();
 
-      this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.logout') });
+      this.$setNotificationData({ type: 'success', message: this.$t('success.logout') });
       this.$router.push({ path: '/' });
     }
   }

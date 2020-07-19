@@ -11,8 +11,8 @@
           <div class="form-container">
             <v-form class="form" v-model="formState.isValid">
               <h3  class="text-left">{{$t('signin.signIn')}}</h3>
-              <v-text-field outlined v-model="formState.username" :rules="formRules.username" required name="username" :label="$t('form.username')"></v-text-field>
-              <v-text-field outlined v-model="formState.password" :rules="formRules.password" required type="password" name="password" :label="$t('form.password')"></v-text-field>
+              <v-text-field outlined v-model="formState.username" :rules="formRules.username" @keyup.enter="handleSignIn" required name="username" :label="$t('form.username')"></v-text-field>
+              <v-text-field outlined v-model="formState.password" :rules="formRules.password" @keyup.enter="handleSignIn" required type="password" name="password" :label="$t('form.password')"></v-text-field>
 
               <v-btn width="100%" large :disabled="!formState.isValid" color="primary" @click="handleSignIn">
                 {{$t('signin.signIn')}}

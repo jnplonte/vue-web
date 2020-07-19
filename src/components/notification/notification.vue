@@ -1,6 +1,7 @@
 <template>
   <div class="notification-continer">
     <v-snackbar
+      class="notification-box"
       v-model="isOpen"
       :color="notificationType"
       :timeout="3000"

@@ -82,7 +82,7 @@ export default class UserTableComponent extends Mixins(HelperMixin, LoadingMixin
     private async handleUpdate(uId: string, routerPush: boolean = true) {
         const requestData: any = await this.userAPI.get({id: uId});
         if (!requestData) {
-            this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+            this.$setNotificationData({ type: 'error', message: this.$t('error.userUpdate') });
         } else {
             if (this.helper.isEmptyObject(requestData.data)) {
                 return;
@@ -114,9 +114,9 @@ export default class UserTableComponent extends Mixins(HelperMixin, LoadingMixin
 
         const requestData: any = await this.userAPI.put({id: data.id}, apiData);
         if (!requestData) {
-            this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+            this.$setNotificationData({ type: 'error', message: this.$t('error.userUpdate') });
         } else {
-            this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userUpdate') });
+            this.$setNotificationData({ type: 'success', message: this.$t('success.userUpdate') });
 
             this.$emit('refreshData', {});
 
@@ -146,9 +146,9 @@ export default class UserTableComponent extends Mixins(HelperMixin, LoadingMixin
     private async handleDeleteConfirm(id: string) {
         const requestData: any = await this.userAPI.delete({id});
         if (!requestData) {
-            this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userDelete') });
+            this.$setNotificationData({ type: 'error', message: this.$t('error.userDelete') });
         } else {
-            this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userDelete') });
+            this.$setNotificationData({ type: 'success', message: this.$t('success.userDelete') });
 
             this.$emit('refreshData', {});
             this.selectedData = null;
