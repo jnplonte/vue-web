@@ -38,6 +38,12 @@ export default class MainLayout extends Mixins(LoadingMixin) {
 
 	openNav: boolean = false;
 
+	mounted() {
+		this.$nextTick(() => {
+			this.openNav = false;
+		});
+	}
+
 	handleOpenNav(val: boolean = false): void {
 		this.openNav = val;
 	}
