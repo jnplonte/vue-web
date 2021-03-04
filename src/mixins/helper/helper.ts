@@ -11,4 +11,8 @@ export class HelperMixin extends Vue {
 			this.helper = new Helper();
 		}
 	}
+
+	get roleIdAdmin(): number {
+		return Number(process.env.VUE_APP_ROLE_ID_ADMIN);
+	}
 }

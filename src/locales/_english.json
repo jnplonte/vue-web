@@ -7,17 +7,6 @@
 		"cancel": "Cancel",
 		"confirm": "Confirm"
 	},
-	"form": {
-		"username": "UserName",
-		"password": "Password",
-		"confirmPassword": "Confirm Password",
-		"search": "Search Username",
-		"firstName": "First Name",
-		"lastName": "Last Name",
-		"roles": "User Role",
-		"email": "Email Address",
-		"phone": "Contact Number"
-	},
 	"error": {
 		"required": "field is required",
 		"usernameRequired": "username is required",
@@ -30,9 +19,32 @@
 		"login": "login success",
 		"logout": "logout success"
 	},
+	"notfound": {
+		"pageNotFound": "PAGE NOT FOUND",
+		"goBackToHome": "HOME PAGE"
+	},
+	"form": {
+		"username": "UserName",
+		"password": "Password",
+		"confirmPassword": "Confirm Password",
+		"search": "Search Username",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"roles": "User Role",
+		"email": "Email Address",
+		"phone": "Contact Number"
+	},
+	"account": {
+		"profile": "PROFILE",
+		"password": "PASSWORD",
+		"updateProfile": "Update",
+		"updatePassword": "Update"
+	},
 	"menu": {
 		"dashboard": "Dashboard",
-		"user": "User"
+		"user": "User",
+		"account": "Account",
+		"signOut": "Sign Out"
 	},
 	"user": {
 		"active": "ACTIVE",

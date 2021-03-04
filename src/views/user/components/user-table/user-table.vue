@@ -36,7 +36,7 @@
 						<v-chip v-else class="ma-2" color="red" label text-color="white">{{ $t('user.inactive') }}</v-chip>
 					</template>
 					<template v-slot:[`item.action`]="{ item }">
-						<template v-if="$authData['id'] !== item.id">
+						<template v-if="$authData['id'] !== item.id && item.roleId !== roleIdAdmin">
 							<v-icon color="green" class="mr-2 pointer" @click.native.prevent="handleUpdate(item.id)"
 								>mdi-pencil</v-icon
 							>
