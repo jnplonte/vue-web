@@ -1,18 +1,13 @@
 .notification-continer {
-    display: block;
+	display: block;
 
-    .notification-box {
-        z-index: 1024;
-    }
-
-    .close {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        height: auto;
-        padding: 10px;
-        margin: 0px !important;
-        min-width: auto;
-    }
+	.close {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		height: auto;
+		padding: 10px;
+		margin: 0px !important;
+		min-width: auto;
+	}
 }
-  

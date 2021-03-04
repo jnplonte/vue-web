@@ -1,78 +1,66 @@
 {
-    "menu": {
-        "dashboard": "Dashboard TG",
-        "user": "User TG",
-        "account": "Account TG",
-        "signOut": "Sign Out TG"
-    },
-    "general": {
-        "warning": "Warning TG",
-        "confirm": "Confirm TG",
-        "cancel": "Cancel TG"
-    },
-    "form": {
-        "username": "User Name TG",
-        "password": "Password TG",
-        "confirmPassword": "Confirm Password TG",
-        "newPassword": "Password TG",
-        "newPasswordConfirm": "Confirm Password TG",
-        "firstName": "First Name TG",
-        "lastName": "Last Name TG",
-        "phone": "Contact Number TG",
-        "email": "Email Address TG",
-        "search": "Search TG",
-        "roles": "Roles TG"
-    },
-
-    "account": {
-        "profile": "Profile TG",
-        "password": "Password TG",
-        "updateProfile": "UPDATE PROFILE TG",
-        "updatePassword": "UPDATE PASSWORD TG"
-    },
-    "signin": {
-        "signIn": "SIGN IN TG"
-    },
-    "notfound": {
-        "pageNotFound": "404 PAGE NOT FOUND TG",
-        "goBackToHome": "back to home page TG"
-    },
-    "user": {
-        "fullName": "Full Name TG",
-        "username": "User Name TG",
-        "email": "Email Address TG",
-        "phone": "Phone Number TG",
-        "delete": "are you sure you want to delete this user? TG",
-        "search": "Search TG",
-        "active": "Active TG",
-        "inactive": "InActive TG",
-        "createdAt": "Created TG",
-        "action": "Action TG",
-        "confirmInsert": "INSERT TG",
-        "confirmUpdate": "UPATE TG",
-        "headerInsert": "INSERT USER TG",
-        "headerUpdate": "UPDATE USER TG",
-        "insert": "INSERT TG",
-        "user": "USER TG"
-    },
-
-    "error": {
-        "required": "required TG",
-        "usernameRequired": "username is required TG",
-        "passwordRequired": "password is required TG",
-        "passwordInvalid": "password is invalid TG",
-        "passwordDosentMatch": "password did not match TG",
-        "login": "invalid username or password TG",
-        "email": "invalid email address TG",
-        "userUpdate": "user update failed TG",
-        "userDelete": "user delete failed TG",
-        "userCreate": "user create failed TG"
-    },
-    "success": {
-        "login": "login success TG",
-        "logout": "logout success TG",
-        "userUpdate": "user update success TG",
-        "userDelete": "user delete success TG",
-        "userCreate": "user create success TG"
-    }
+	"signin": {
+		"signIn": "MAG-SIGN IN"
+	},
+	"general": {
+		"warning": "BABALA!",
+		"cancel": "Kanselahin",
+		"confirm": "Kumpirmahin"
+	},
+	"error": {
+		"required": "kailangan ang field",
+		"usernameRequired": "kailangan ang username",
+		"passwordRequired": "kailangan ang password",
+		"passwordInvalid": "Imbalido ang password",
+		"login": "Mali ang username o password",
+		"passwordDosentMatch": "Hindi Magkatugma ang Password"
+	},
+	"success": {
+		"login": "tagumpay sa pag-login",
+		"logout": "Tagumpay sa pagpasok"
+	},
+	"notfound": {
+		"pageNotFound": "HINDI NATAGPUAN ANG PAHINA",
+		"goBackToHome": "HOME PAGE"
+	},
+	"form": {
+		"username": "UserName",
+		"password": "Password",
+		"confirmPassword": "Kumpirmahin ang Password",
+		"search": "Magsaliksik ng Username",
+		"firstName": "Unang Pangalan",
+		"lastName": "Apelyido",
+		"roles": "Papel ng Gumagamit",
+		"email": "Email Address",
+		"phone": "Numero ng Kontak"
+	},
+	"account": {
+		"profile": "PROFILE",
+		"password": "PASSWORD",
+		"updateProfile": "Kumpirmahin",
+		"updatePassword": "Kumpirmahin"
+	},
+	"menu": {
+		"dashboard": "Dashboard",
+		"user": "Gumagamit",
+		"account": "Account",
+		"signOut": "Mag-sign Out"
+	},
+	"user": {
+		"active": "Aktibo",
+		"inactive": "HINDI AKTIBO",
+		"fullName": "BUONG PANGALAN",
+		"userName": "USERNAME",
+		"email": "EMAIL ADDRESS",
+		"phone": "NUMERO NG CONTACT",
+		"createdAt": "NILIKHA SA",
+		"action": "AKSYON",
+		"insert": "Magsingit",
+		"search": "Paghahanap",
+		"headerInsert": "Magsingit ng Gumagamit",
+		"headerUpdate": "Magsunod-sa-panahon ng Gumagamit",
+		"confirnInsert": "Kumpirmahin",
+		"confirmUpdate": "Kumpirmahin",
+		"delete": "Tiyak ka bang gusto mong magtanggal nitong USER?"
+	}
 }

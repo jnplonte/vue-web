@@ -1,7 +1,14 @@
 .user-toolbar-component {
-    .insert-btn-container {
-        text-align: right;
-        padding: 6px;
-    }
+	.insert-btn-container {
+		text-align: right;
+		padding: 6px;
+	}
+
+	.custom-w-100 {
+		width: 100%;
+
+		@include respond-to('small') {
+			width: 155px;
+		}
+	}
 }
-  

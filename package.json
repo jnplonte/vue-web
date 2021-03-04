@@ -1,68 +1,70 @@
 {
-  "name": "vue-web",
-  "description": "vue web",
-  "version": "1.0.0",
-  "main": "index.js",
-  "private": true,
-  "keywords": [],
-  "author": "john paul onte <jnpl.onte@gmail.com>",
-  "license": "MIT",
-  "quokka": {
-    "babel": true
-  },
-  "dependencies": {
-    "@mdi/font": "^5.3.45",
-    "axios": "^0.19.2",
-    "chart.js": "^2.9.3",
-    "compression-webpack-plugin": "^4.0.0",
-    "core-js": "^3.6.5",
-    "jnpl-helper": "^1.5.19",
-    "md5": "^2.2.1",
-    "node-sass": "^4.14.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "register-service-worker": "^1.7.1",
-    "sass": "^1.26.10",
-    "sass-loader": "^8.0.2",
-    "script-ext-html-webpack-plugin": "^2.1.4",
-    "typescript": "^3.9.7",
-    "validate.js": "^0.13.1",
-    "vue": "^2.6.11",
-    "vue-chartjs": "^3.5.0",
-    "vue-class-component": "^7.2.3",
-    "vue-cli-plugin-vuetify": "^2.0.6",
-    "vue-i18n": "^8.18.2",
-    "vue-property-decorator": "^9.0.0",
-    "vue-router": "^3.3.4",
-    "vue-template-compiler": "^2.6.11",
-    "vuetify": "^2.3.4",
-    "vuetify-loader": "^1.6.0",
-    "vuex": "^3.5.1",
-    "vuex-class": "^0.3.2"
-  },
-  "devDependencies": {
-    "@types/node": "^14.0.23",
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-router": "^4.4.6",
-    "@vue/cli-plugin-typescript": "^4.4.6",
-    "@vue/cli-plugin-vuex": "^4.4.6",
-    "@vue/cli-service": "^4.4.6"
-  },
-  "scripts": {
-    "start": "vue-cli-service serve --mode development",
-    "build:dev": "vue-cli-service build --mode development",
-    "build:prod": "vue-cli-service build --mode production",
-    "lint": "vue-cli-service lint"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "vue-web",
+	"description": "vue web",
+	"version": "1.0.0",
+	"main": "index.js",
+	"private": true,
+	"keywords": [],
+	"author": "john paul onte <jnpl.onte@gmail.com>",
+	"license": "MIT",
+	"quokka": {
+		"babel": true
+	},
+	"dependencies": {
+		"@mdi/font": "^5.9.55",
+		"axios": "^0.21.1",
+		"chart.js": "^2.9.4",
+		"compression-webpack-plugin": "^7.1.2",
+		"core-js": "^3.9.1",
+		"jnpl-helper": "^1.5.20",
+		"md5": "^2.3.0",
+		"node-sass": "^5.0.0",
+		"optimize-css-assets-webpack-plugin": "^5.0.4",
+		"register-service-worker": "^1.7.2",
+		"sass": "^1.32.8",
+		"sass-loader": "10.1.1",
+		"script-ext-html-webpack-plugin": "^2.1.5",
+		"typescript": "^4.2.2",
+		"validate.js": "^0.13.1",
+		"vue": "^2.6.12",
+		"vue-chartjs": "^3.5.1",
+		"vue-class-component": "^7.2.6",
+		"vue-cli-plugin-vuetify": "^2.2.0",
+		"vue-i18n": "^8.23.0",
+		"vue-property-decorator": "^9.1.2",
+		"vue-router": "^3.5.1",
+		"vue-template-compiler": "^2.6.12",
+		"vuetify": "^2.4.5",
+		"vuetify-loader": "^1.7.2",
+		"vuex": "^3.6.2",
+		"vuex-class": "^0.3.2"
+	},
+	"devDependencies": {
+		"@types/node": "^14.14.31",
+		"@vue/cli-plugin-babel": "^4.5.11",
+		"@vue/cli-plugin-router": "^4.5.11",
+		"@vue/cli-plugin-typescript": "^4.5.11",
+		"@vue/cli-plugin-vuex": "^4.5.11",
+		"@vue/cli-service": "^4.5.11",
+		"eslint": "^7.21.0",
+		"eslint-plugin-vue": "^7.7.0"
+	},
+	"scripts": {
+		"start": "vue-cli-service serve --mode development",
+		"build:dev": "vue-cli-service build --mode development",
+		"build:prod": "vue-cli-service build --mode production",
+		"lint": "vue-cli-service lint"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }

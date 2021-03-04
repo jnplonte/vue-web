@@ -6,19 +6,19 @@ import { IAuthenticationState } from './types';
 import { IRootState } from '../types';
 
 const AuthenticationModule: Module<IAuthenticationState, IRootState> = {
-  namespaced: true,
-  state: () => {
-      return {
-        token: '',
-        isLogIn: false,
-        authData: {},
-      };
-  },
-  getters,
-  actions,
-  mutations,
+	namespaced: true,
+	state: () => {
+		return {
+			token: '',
+			isLogIn: false,
+			authData: {},
+		};
+	},
+	getters,
+	actions,
+	mutations,
 };
 
 export function createAuthenticationModule() {
-  return AuthenticationModule;
+	return AuthenticationModule;
 }

@@ -4,9 +4,11 @@ import { Logger } from '@/services/logger/logger.service';
 
 @Component
 export class LoggerMixin extends Vue {
-  protected logger: Logger;
+	protected logger: Logger;
 
-  beforeCreate(): void {
-    if (!this.logger) { this.logger = new Logger(); }
-  }
+	beforeCreate(): void {
+		if (!this.logger) {
+			this.logger = new Logger();
+		}
+	}
 }

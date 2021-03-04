@@ -6,18 +6,18 @@ import { ISiteInformationState } from './types';
 import { IRootState } from '../types';
 
 const SiteInformationModule: Module<ISiteInformationState, IRootState> = {
-  namespaced: true,
-  state: () => {
-      return {
-        notificationData: {},
-        loading: true,
-      };
-  },
-  getters,
-  actions,
-  mutations,
+	namespaced: true,
+	state: () => {
+		return {
+			notificationData: {},
+			loading: true,
+		};
+	},
+	getters,
+	actions,
+	mutations,
 };
 
 export function createSiteInformationModule() {
-  return SiteInformationModule;
+	return SiteInformationModule;
 }

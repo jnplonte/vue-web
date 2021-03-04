@@ -8,68 +8,69 @@ import { LoadingMixin } from '@/mixins/loading/loading';
 import { UserAPI } from '@/api/user.api';
 
 @Component({
-  name: 'Security',
-  components: {
-  },
+	name: 'Security',
+	components: {},
 })
-
 export default class Profile extends Mixins(HelperMixin, LoadingMixin) {
-  @Getter('token', { namespace: 'authentication' }) $token;
-  @Getter('authData', { namespace: 'authentication' }) $authData;
-  @Action('setNotificationData', { namespace: 'siteInformation' }) $setNotificationData;
+	@Getter('token', { namespace: 'authentication' }) $token;
+	@Getter('authData', { namespace: 'authentication' }) $authData;
+	@Action('setNotificationData', { namespace: 'siteInformation' }) $setNotificationData;
 
-  private userAPI: UserAPI = null;
-  private formData: object = {
-    password: null,
-    passwordConfirm: null,
-  };
+	private userAPI: UserAPI = null;
+	private formData: object = {
+		password: null,
+		passwordConfirm: null,
+	};
 
-  private passwordRules: any = [];
-  private confirmPasswordRules: any = [];
+	private newPwdRules: any = [];
+	private newPwdConfirmRules: any = [];
 
-  private get form(): any {
-    return this.$refs['formPassword'];
-  }
+	private get form(): any {
+		return this.$refs['formPassword'];
+	}
 
-  created(): void {
-    this.loading = false;
+	created(): void {
+		this.loading = false;
 
-    this.userAPI = new UserAPI(this.$token);
+		this.userAPI = new UserAPI(this.$token);
 
-    this.defineFormRules();
-  }
+		this.defineFormRules();
+	}
 
-  private defineFormRules() {
-    this.passwordRules = [
-      (v) => !!v || this.$t('error.passwordInvalid'),
-      (v) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.{8,})/.test(v) || this.$t('error.passwordInvalid'),
-    ];
+	private defineFormRules() {
+		this.newPwdRules = [
+			(v) => !!v || this.$t('error.required'),
+			(v) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.{8,})/.test(v) || this.$t('error.passwordInvalid'),
+		];
 
-    this.confirmPasswordRules = [
-      (v) => !!v || this.$t('error.passwordInvalid'),
-      (v) => this.formData['password'] === v || this.$t('error.passwordDosentMatch'),
-    ];
-  }
+		this.newPwdConfirmRules = [
+			(v) => !!v || this.$t('error.required'),
+			(v) => this.formData['password'] === v || this.$t('error.passwordDosentMatch'),
+		];
+	}
 
-  async updatePassword() {
-    const isFormValid: boolean = this.form.validate();
+	async updatePassword() {
+		const isFormValid: boolean = this.form.validate();
 
-    if (!isFormValid) {
-      return;
-    }
+		if (!isFormValid) {
+			return;
+		}
 
-    this.loading = true;
+		this.loading = true;
 
-    const requestData: any = await this.userAPI.put({id: this.$authData.id}, {
-        password: md5(this.formData['password'] || ''),
-    });
-    if (!requestData) {
-        this.$setNotificationData({ type: 'error', message: this.$t('error.userUpdate') });
-    } else {
-        this.$setNotificationData({ type: 'success', message: this.$t('success.userUpdate') });
-    }
+		const requestData: any = await this.userAPI.put(
+			{ id: this.$authData.id },
+			{
+				password: md5(this.formData['password'] || ''),
+			}
+		);
+		if (!requestData) {
+			this.$setNotificationData({ type: 'error', message: this.$i18n.t('error.userUpdate') });
+		} else {
+			this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.userUpdate') });
+		}
 
-    this.form.reset();
-    this.loading = false;
-  }
+		this.form.reset();
+		this.loading = false;
+	}
 }

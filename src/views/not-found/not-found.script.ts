@@ -4,13 +4,12 @@ import { Component } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
 
 @Component({
-  name: 'NotFoundView',
+	name: 'NotFoundView',
 })
-
 export default class NotFoundView extends Vue {
-  @Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
+	@Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
 
-  get homePage(): string {
-    return (this.$isLogIn) ? '/dashboard' : '/';
-  }
+	get homePage(): string {
+		return this.$isLogIn ? '/dashboard' : '/';
+	}
 }

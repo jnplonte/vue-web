@@ -1,57 +1,62 @@
 <template>
-  <div>
-    <div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
-      <topbar @openNav="handleOpenNav" @signOut="handleSignOut"/>
-      <sidebar @openNav="handleOpenNav" :open-nav-value="openNavValue"/>
-      <v-main app class="main-container">
-        <div v-if="loading" class="loader-container">
-          <v-progress-circular :size="70" :width="7" color="indigo" indeterminate ></v-progress-circular>
-        </div>
-        <slot />
-      </v-main>
-      <custom-footer/>
-    </div>
-  </div>
+	<div>
+		<div class="main" :class="{ 'is-login': $isLogIn, 'is-logout': !$isLogIn }">
+			<topbar @openNav="handleOpenNav" @signOut="handleSignOut" />
+			<sidebar @openNav="handleOpenNav" :open-nav-value="openNavValue" />
+			<v-main app class="main-container">
+				<div v-if="loading" class="loader-container">
+					<v-progress-circular :size="70" :width="7" color="indigo" indeterminate></v-progress-circular>
+				</div>
+				<slot />
+			</v-main>
+			<custom-footer />
+		</div>
+	</div>
 </template>
 
 <script lang="ts">
-  import { Getter, Mutation, Action } from 'vuex-class';
-  import { Component, Mixins } from 'vue-property-decorator';
+import { Getter, Mutation, Action } from 'vuex-class';
+import { Component, Mixins } from 'vue-property-decorator';
 
-  import { Topbar, Sidebar, Footer } from './components';
+import { Topbar, Sidebar, Footer } from './components';
 
-  import { LoadingMixin } from '@/mixins/loading/loading';
+import { LoadingMixin } from '@/mixins/loading/loading';
 
-  @Component({
-    name: 'MainLayout',
-    components: {
-      'topbar': Topbar,
-      'sidebar': Sidebar,
-      'custom-footer': Footer,
-    },
-  })
+@Component({
+	name: 'MainLayout',
+	components: {
+		topbar: Topbar,
+		sidebar: Sidebar,
+		'custom-footer': Footer,
+	},
+})
+export default class MainLayout extends Mixins(LoadingMixin) {
+	@Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
+	@Action('logOutUser', { namespace: 'authentication' }) $logOutUser;
 
-  export default class MainLayout extends Mixins(LoadingMixin) {
-    @Getter('isLogIn', { namespace: 'authentication' }) $isLogIn;
-    @Action('logOutUser', { namespace: 'authentication' }) $logOutUser;
+	@Action('setNotificationData', { namespace: 'siteInformation' }) $setNotificationData;
 
-    @Action('setNotificationData', { namespace: 'siteInformation' }) $setNotificationData;
+	openNav: boolean = false;
 
-    openNav: boolean = false;
+	mounted() {
+		this.$nextTick(() => {
+			this.openNav = false;
+		});
+	}
 
-    handleOpenNav(val: boolean  = false): void {
-      this.openNav = val;
-    }
+	handleOpenNav(val: boolean = false): void {
+		this.openNav = val;
+	}
 
-    get openNavValue(): boolean {
-      return this.openNav;
-    }
+	get openNavValue(): boolean {
+		return this.openNav;
+	}
 
-    handleSignOut() {
-      this.$logOutUser();
+	handleSignOut() {
+		this.$logOutUser();
 
-      this.$setNotificationData({ type: 'success', message: this.$t('success.logout') });
-      this.$router.push({ path: '/' });
-    }
-  }
+		this.$setNotificationData({ type: 'success', message: this.$i18n.t('success.logout') });
+		this.$router.push({ path: '/' });
+	}
+}
 </script>

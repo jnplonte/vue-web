@@ -5,15 +5,15 @@ import { createAuthenticationModule } from './authentication';
 import { createSiteInformationModule } from './site-information';
 
 const store: StoreOptions<IRootState> = {
-  strict: true,
-  modules: {
-    authentication: createAuthenticationModule(),
-    siteInformation: createSiteInformationModule(),
-  },
+	strict: true,
+	modules: {
+		authentication: createAuthenticationModule(),
+		siteInformation: createSiteInformationModule(),
+	},
 };
 
 export function createStore(vueInstance = Vue) {
-  vueInstance.use(Vuex);
+	vueInstance.use(Vuex);
 
-  return new Store<IRootState>(store);
+	return new Store<IRootState>(store);
 }
