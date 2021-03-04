@@ -4,9 +4,7 @@
 			<user-form v-model="isAddModalOpen" @onUpdate="handleAddConfirm" @onCancel="handleAddClose" type="insert" />
 		</v-dialog>
 		<div class="insert-btn-container">
-			<v-btn color="primary" @click.native.prevent="handleAddOpen"
-				>{{ $t('user.insert') }}<span class="d-none d-sm-inline">{{ $t('user.user') }}</span></v-btn
-			>
+			<v-btn color="primary" class="custom-w-100" @click.native.prevent="handleAddOpen">{{ $t('user.insert') }}</v-btn>
 		</div>
 	</div>
 </template>

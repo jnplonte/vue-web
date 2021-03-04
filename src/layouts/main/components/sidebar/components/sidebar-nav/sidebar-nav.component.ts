@@ -2,25 +2,30 @@ import { Component, Prop, Watch, Mixins } from 'vue-property-decorator';
 import { HelperMixin } from '@/mixins/helper/helper';
 
 @Component({
-  name: 'SidebarNavComponent',
-  components: {},
+	name: 'SidebarNavComponent',
+	components: {},
 })
-
 export default class SidebarNavComponent extends Mixins(HelperMixin) {
-    @Prop({ type: Array, default: [] }) pages: Array<any | null>;
+	@Prop({ type: Array, default: [] }) pages: Array<any | null>;
 
-    private path: string = 'dashboard';
+	private path: string = 'dashboard';
 
-    @Watch('$route.name')
-    onChangeRoute(newVal) {
-      this.path = newVal;
-    }
+	mounted() {
+		this.$nextTick(() => {
+			this.path = this.$route.name;
+		});
+	}
 
-    get activeRoute(): string {
-      return this.path;
-    }
+	@Watch('$route.name')
+	onChangeRoute(newVal) {
+		this.path = newVal;
+	}
 
-    get pageList(): Array<any | null> {
-        return this.$props.pages;
-    }
+	get activeRoute(): string {
+		return this.path;
+	}
+
+	get pageList(): Array<any | null> {
+		return this.$props.pages;
+	}
 }

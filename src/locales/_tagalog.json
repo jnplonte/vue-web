@@ -1,5 +1,23 @@
 {
-    "signin": {
-        "signIn": "TAGALOG SIGN IN"
-    }
+	"signin": {
+		"signIn": "MAG SIGN IN"
+	},
+	"form": {
+		"username": "UserName",
+		"password": "Password"
+	},
+	"error": {
+		"usernameRequired": "username ay kailangan",
+		"passwordRequired": "password ay kailangan",
+		"passwordInvalid": "password ay kailangan",
+		"login": "mali ang username o password"
+	},
+	"success": {
+		"login": "tagumpay sa pag-login",
+		"logout": "tagumpay sa pag-logout"
+	},
+	"menu": {
+		"dashboard": "Dashboard",
+		"user": "Gumagamit"
+	}
 }

@@ -65,7 +65,7 @@ export default class UserFormComponent extends Mixins(HelperMixin, LoggerMixin) 
 
 	private get confirmText(): string {
 		if (this.$props.type === 'insert') {
-			return this.$t('user.confmrInsert') as string;
+			return this.$t('user.confirnInsert') as string;
 		} else {
 			return this.$t('user.confirmUpdate') as string;
 		}

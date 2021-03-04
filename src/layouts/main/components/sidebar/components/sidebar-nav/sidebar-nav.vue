@@ -4,14 +4,14 @@
 			link
 			v-for="(page, indx) in pageList"
 			:key="indx"
-			:class="{ active: path === page.name }"
+			:class="{ active: activeRoute === page.name }"
 			:to="page.href"
 		>
 			<v-list-item-action>
 				<v-icon>{{ page.icon }}</v-icon>
 			</v-list-item-action>
 			<v-list-item-content>
-				<v-list-item-title class="text-left">{{ page.title }}</v-list-item-title>
+				<v-list-item-title class="text-left">{{ $t(page.title) }}</v-list-item-title>
 			</v-list-item-content>
 		</v-list-item>
 	</v-list>

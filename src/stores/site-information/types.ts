@@ -1,4 +1,4 @@
 export interface ISiteInformationState {
-  notificationData: object;
-  loading: boolean;
+	notificationData: object;
+	loading: boolean;
 }

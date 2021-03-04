@@ -26,16 +26,16 @@
 					:footer-props="tableOptionFooter"
 					disable-sort
 				>
-					<template v-slot:item.name="{ item }">
+					<template v-slot:[`item.name`]="{ item }">
 						{{ `${item.firstName} ${item.lastName}` }}
 					</template>
-					<template v-slot:item.active="{ item }">
+					<template v-slot:[`item.active`]="{ item }">
 						<v-chip v-if="item.active" class="ma-2" color="green" label text-color="white">{{
 							$t('user.active')
 						}}</v-chip>
 						<v-chip v-else class="ma-2" color="red" label text-color="white">{{ $t('user.inactive') }}</v-chip>
 					</template>
-					<template v-slot:item.action="{ item }">
+					<template v-slot:[`item.action`]="{ item }">
 						<template v-if="$authData['id'] !== item.id">
 							<v-icon color="green" class="mr-2 pointer" @click.native.prevent="handleUpdate(item.id)"
 								>mdi-pencil</v-icon

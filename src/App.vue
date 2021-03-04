@@ -14,7 +14,7 @@
 import '@/hooks.ts';
 
 import Vue from 'vue';
-import { Getter, Action } from 'vuex-class';
+import { Getter } from 'vuex-class';
 import { Component } from 'vue-property-decorator';
 
 import { MainLayout, MinimalLayout } from '@/layouts';

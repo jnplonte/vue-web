@@ -95,7 +95,7 @@
 			</v-card-text>
 			<v-card-actions>
 				<v-spacer></v-spacer>
-				<v-btn text @click="cancelUser">CANCEL</v-btn>
+				<v-btn text @click="cancelUser">{{ $t('general.cancel') }}</v-btn>
 				<v-btn color="primary" @click.native.prevent="updateUser">{{ confirmText }}</v-btn>
 			</v-card-actions>
 		</v-card>

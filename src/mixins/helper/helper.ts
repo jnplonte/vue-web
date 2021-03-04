@@ -4,9 +4,11 @@ import { Helper } from '@/services/helper/helper.service';
 
 @Component
 export class HelperMixin extends Vue {
-  protected helper: Helper;
+	protected helper: Helper;
 
-  beforeCreate(): void {
-    if (!this.helper) { this.helper = new Helper(); }
-  }
+	beforeCreate(): void {
+		if (!this.helper) {
+			this.helper = new Helper();
+		}
+	}
 }
