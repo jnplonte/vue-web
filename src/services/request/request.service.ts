@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestHeaders } from 'axios';
 import { Logger } from './../logger/logger.service';
 import { Helper } from './../helper/helper.service';
 
@@ -39,7 +39,7 @@ export class Request {
 		this.customerKey = process.env.VUE_APP_CUSTOMER_KEY || '';
 		this.customerHash = process.env.VUE_APP_CUSTOMER_KEY_HASH || '';
 
-		const additionalHeaders: object = {
+		const additionalHeaders: AxiosRequestHeaders = {
 			Content: 'application/json',
 			'Content-Type': 'application/json',
 			[this.customerKey]: Buffer.from(this.customerHash).toString('base64'),
