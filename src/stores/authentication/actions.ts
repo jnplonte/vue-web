@@ -4,7 +4,7 @@ import { IRootState } from '../types';
 
 import { Helper } from '@/services/helper/helper.service';
 
-import { AuthAPI } from '@/api/authenttication.api';
+import { AuthAPI } from '@/api/authentication.api';
 import { UserAPI } from '@/api/user.api';
 
 const helper: Helper = new Helper();
